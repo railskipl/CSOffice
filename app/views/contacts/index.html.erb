@@ -1,0 +1,42 @@
+
+
+
+
+
+<%= link_to 'New Contact', new_contact_path, :class=>"title" %>
+
+<div align="center" id="middle">
+  <table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
+				<tr>
+					<th align="center" valign="middle" class="table-header-repeat line-left minwidth-1"><a href="">Name</a>	</th>
+					<th align="center" valign="middle" class="table-header-repeat line-left"><a href="">Email</a></th>
+					<th align="center" valign="middle" class="table-header-options line-left"><a href="">Action</a></th>
+				</tr>
+				
+				<% @contacts.each do |contact| %>
+				<tr>
+					<td><%= contact.first_name %> <%= contact.middle_name %> <%= contact.last_name %></td>
+					<td><%= contact.per_email_id %></td>
+					<td class="options-width">
+					    
+					    <%= link_to '', contact, :class=>"icon-1 info-tooltip" %>
+					    <%= link_to '', edit_contact_path(contact), :class=>"icon-2 info-tooltip" %>
+					    <a href="/contacts/<%= contact.id %>/delete" onclick="if(confirm('Are you sure you want to delete this contact?'))  return true;  else  return false;" class="icon-3 info-tooltip" ></a>
+					    						
+					</td>
+				</tr>
+				<% end %>
+					
+	  </table>
+	  
+	  <table border="0" cellpadding="0" cellspacing="0" id="paging-table">
+			<tr>
+			<td><%= will_paginate(@contacts) %>
+				<a href= "" class="page-far-left"></a>
+				<a href="" class="page-left"></a>
+				<div id="page-info">Page <strong>1</strong> / 15</div>
+				<a href="" class="page-right"></a>
+				<a href="" class="page-far-right"></a>			</td>
+			</tr>
+			</table>
+  </div>

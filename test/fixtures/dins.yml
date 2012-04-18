@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  contact_id: 1
+  din_no: MyString
+  digital_signature: false
+  expiry: 2012-04-12
+
+two:
+  contact_id: 1
+  din_no: MyString
+  digital_signature: false
+  expiry: 2012-04-12

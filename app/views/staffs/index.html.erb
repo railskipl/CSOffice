@@ -1,0 +1,51 @@
+ <div id="middle">
+ 	 <% if current_user.role? :csadmin %>
+  <div class="addstaff_tooltip">
+  <div class="tt">
+    <p><span style="font-size:25px; color:#FFFFFF">Invite other people!</span> </p>
+    <p><span style="color:#000000; font-size:18px">CS Office  is even more powerful when you invite others to the party. Quickly invite people to your projects with just an email address.</span></p>
+  </div>
+  
+  </div>
+  
+    <div id="middle_left">
+	<div class="add"><%= link_to image_tag("/images/add.png", :alt => "Add Staff" ), root_path %>
+	<a href="#" class="addlink">Add Staff</a></div>
+	<% end %>
+	</div>
+	
+	
+    <div id="middle_right">
+	<div class="staff_avatar_wrap">
+	  <div><a href="#"><img src="/images/kids.jpg" alt="" width="171" height="133" border="0" class="staff_avatar" /></a></div>
+	  <div class="staff_name"><a href="#" class="addlink">Staff Name</a></div>
+	</div>
+	
+	 <% if current_user.invitation.user_id == nil && (current_user.role? :csadmin) %>
+	<div class="staff_avatar_wrap">
+	  <div><%= link_to image_tag("/images/user.gif", :class => "staff_avatar", :alt => "#{current_user.name}" ), {:action=>"show", :controller=>"users", :id => current_user.id} %></div>
+	  <div class="staff_name"><img src="/images/sign.png" alt=""  border="0" /></div>
+	</div>
+   	  <% @users.each do |user| %>
+   	  <% if current_user.id == user.invitation.user_id && (user.role? :staff) %>
+	<div class="staff_avatar_wrap">
+	  <div><%= link_to image_tag("/images/user.gif", :class => "staff_avatar", :alt => "#{user.name}" ), {:action=>"show", :controller=>"users", :id => user.id} %></div>
+	  <div class="staff_name"><img src="/images/sign.png" alt=""  border="0" /></div>
+	</div>
+	<% end %>
+    <% end %>
+    <% elsif current_user.invitation.user_id != nil && (current_user.role? :staff) %>
+	<% @users.each do |user| %>
+   	  <% if current_user.invitation.user_id == user.invitation.user_id && (user.role? :staff) %>
+	<div class="staff_avatar_wrap">
+	  <div><%= link_to image_tag("/images/user.gif", :class => "staff_avatar", :alt => "#{user.name}" ), {:action=>"show", :controller=>"users", :id => user.id} %></div>
+	  <div class="staff_name"><img src="/images/sign.png" alt=""  border="0" /></div>
+	</div>
+	<% end %>
+    <% end %>
+    <% end %>	
+	<div id="tnt_pagination">
+<span class="disabled_tnt_pagination">Prev</span><a href="#1">1</a><a href="#2">2</a><a href="#3">3</a><a href="#forwaed">Next</a></div>
+	
+  </div>
+</div>

@@ -1,0 +1,141 @@
+  <% if !signed_in? %>
+  <div id="middle">
+    <div id="middle_left">
+	
+	<div id="video_bg">
+	<iframe width="517" height="313" src="http://www.youtube.com/embed/MhtqvNyKeQo" frameborder="0"></iframe>
+	
+	</div>
+	<div id="video_title">
+	  <p><strong>VIDEO TITLE...<br />
+	  </strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam egestas interdum metus nec mattis. Nullam sodales, diam sed faucibus hendrerit, urna mauris tincidunt erat, ac porttitor diam velit a leo.	    </p>
+	  </div>
+	
+	
+	
+	</div>
+	
+    <div id="middle_right">
+	<div>
+    <strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam egestas interdum metus nec mattis.</strong> Nullam sodales, diam sed faucibus hendrerit, urna mauris tincidunt erat, ac porttitor diam velit a leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam egestas interdum metus nec mattis. Nullam sodales, diam sed faucibus hendrerit, urna mauris tincidunt erat, ac porttitor diam velit a leo.
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam egestas interdum metus nec mattis. Nullam sodales, diam sed faucibus hendrerit, urna mauris tincidunt erat, ac porttitor diam velit a leo.</p>
+	  
+	  	<div id="signindiv">
+	  	<%= form_for(@invitation) do |f| %>
+      <%= render 'shared/error_messages', :object => f.object %>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+              <td width="80" align="left" valign="middle" class="blue_txt"><strong>Your Email : </strong></td>
+    
+              <td align="left" valign="middle">
+          
+              <%= f.text_field   :email,   :class=>"textfield2" %>
+              <%= f.hidden_field :role_id, :value => 2 %>
+                </td>
+            
+          </tr>
+          <tr>
+              <td align="left" valign="middle">&nbsp;</td>
+              <td align="left" valign="middle" style="padding-top:10px"><input type="submit" name="Submit" value="Send me an invite" class="signup_button" /></td>
+          </tr>
+          </table>
+        <% end %>
+
+	  </div>
+	  </div>
+    </div>
+	
+	<div></div>
+  </div>
+  <% else %>
+    
+  </div>
+  
+  
+  <div align="center" id="middle">
+  <div class="icon2"><div class="rotate"><img src="images/icon2.png" alt="" border="0" /></div></div>
+   <%= form_for(@invitation) do |f| %>
+   <%= render 'shared/error_messages', :object => f.object %>
+  <div class="newuser_box"><div class="heading1">
+    <p>Invite new people to your CS Office account
+      <br />
+      <span class="heading2">Type each person's email address:</span>
+    <p><%= f.text_field :email, :class=>"field3" %>
+    </p>
+    </div>
+ </div>
+ <div class="vertical_line"></div>
+ 
+ <div class="icon2"><div class="rotate"><img src="images/icon2.png" alt="" border="0" /></div></div>
+ 
+ <div class="newuser_box"><div class="heading1">
+   Which projects can these people access?
+ 
+  <div> <a href="#" class="addlink">
+Add to all projects</a></div>
+    <table cellpadding="0" cellspacing="5" class="heading3">
+      <tbody>
+        <tr data-project-id="247721">
+          <th><label>
+            <input type="checkbox" name="checkbox3" value="checkbox" />
+          </label></th>
+          <td>Explore Basecamp! </td>
+        </tr>
+        <tr data-project-id="273719">
+          <th><input type="checkbox" name="checkbox22" value="checkbox" /></th>
+          <td>Name the project </td>
+        </tr>
+        <tr data-project-id="247730">
+          <th><input type="checkbox" name="checkbox3" value="checkbox" /></th>
+          <td> cs </td>
+        </tr>
+      </tbody>
+    </table>
+    <p> 
+ </div>
+ </div>
+ 
+ 
+ 
+  <div class="vertical_line"></div>
+ 
+ <div class="icon2"><div class="rotate"><img src="images/icon2.png" alt="" border="0" /></div></div>
+ 
+ <div class="newuser_box"><div class="heading1">
+   Which superpowers, if any, should they have?
+      
+    <table cellpadding="0" cellspacing="5" class="heading3">
+      <tbody>
+        <tr>
+          <th>
+             <div class="actions">
+        
+                  <% for role in Role.find(3,4) %>
+                    <%= f.radio_button :role_id, role.id %>
+                      <%= role.name %>
+                    <% end %>
+                    <%= f.hidden_field :user_id, :value => current_user.id %>
+          </th>
+        </tr>
+      </tbody>
+    </table>
+ </div>
+ </div>
+ 
+  <div class="vertical_line"></div>
+ 
+ <div class="icon2"><div class="rotate"><img src="images/icon2.png" alt="" border="0" /></div></div>
+ 
+ <div style="margin-bottom:20px" class="newuser_box">
+ 
+ <div align="center" class="heading1">
+ 
+   <input type="submit" name="Submit" value="Send The Invitation" class="signup_button" />
+ </div>
+ <div class="heading3" style="margin:10px">Each person will get an email with a link to your account.</div>
+ </div>
+    <% end %>
+	<% end %>
+
+
+

@@ -1,0 +1,35 @@
+<div id="middle">
+<div id="middle_right">
+<h1>Sign up</h1>
+<%= form_for(@user) do |f| %>
+<%= render 'shared/error_messages', :object => f.object %>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td><%= f.label :name %></td>
+<td><%= f.text_field :name %></td>
+</tr>
+
+<tr>
+<td><%= f.label :email %></td>
+<td><%= f.text_field :email %></td>
+</tr>
+
+<tr>
+<td><%= f.label :password %></td>
+<td><%= f.password_field :password %></td>
+</tr>
+
+<tr>
+<td><%= f.label :password_confirmation, "Confirm Your Password" %></td>
+<td><%= f.password_field :password_confirmation %></td>
+</tr>
+<tr>
+<td colspan="2"><%= f.hidden_field :invitation_token %>
+	            <%= hidden_field_tag "user[role_ids][]", @user.invitation.role_id  %>
+	            <%= f.submit "Sign up" %></td>
+
+</tr>
+</table>
+<% end %>
+</div>
+</div>

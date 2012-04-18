@@ -1,0 +1,34 @@
+<%= form_for(@din) do |f| %>
+  <% if @din.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@din.errors.count, "error") %> prohibited this din from being saved:</h2>
+
+      <ul>
+      <% @din.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :contact_id %><br />
+    
+    <%= select :din, :contact_id, @con.map {|c| ["#{c.first_name} #{c.last_name}", c.id]} %>
+  </div>
+  <div class="field">
+    <%= f.label :din_no %><br />
+    <%= f.text_field :din_no %>
+  </div>
+  <div class="field">
+    <%= f.label :digital_signature %><br />
+    <%= f.check_box :digital_signature %>
+  </div>
+  <div class="field">
+    <%= f.label :expiry %><br />
+    <%= f.date_select :expiry %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

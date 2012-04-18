@@ -1,0 +1,29 @@
+<h1>Listing dins</h1>
+
+<table>
+  <tr>
+    <th>Contact</th>
+    <th>Din no</th>
+    <th>Digital signature</th>
+    <th>Expiry</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @dins.each do |din| %>
+  <tr>
+    <td><%= din.contact_id %></td>
+    <td><%= din.din_no %></td>
+    <td><%= din.digital_signature %></td>
+    <td><%= din.expiry %></td>
+    <td><%= link_to 'Show', din %></td>
+    <td><%= link_to 'Edit', edit_din_path(din) %></td>
+    <td><%= link_to 'Destroy', din, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Din', new_din_path %>

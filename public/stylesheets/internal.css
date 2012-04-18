@@ -1,0 +1,235 @@
+/* CSS Document */
+
+body{ margin:0; padding:0; font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#4d4d4d; background: url(../images/b_bg.jpg) #f0f0f0}
+
+#maindiv{ width:100%; height:auto; overflow:hidden}
+#wraper{ width:1000px; height:auto; overflow:hidden; text-align:left}
+
+#header{ width:100%; height:auto; margin:10px 0 0 0; overflow:hidden}
+#header_left{ width:50%; height:auto; float:left}
+
+#header_right{ width:50%; height:auto; float:right}
+
+.topmenu{
+font-weight: normal;
+width: 50%; float:right; margin:10px 0 10px 0
+}
+
+.topmenu ul{
+padding:  0; /*6px should equal top padding of "ul li a" below, 7px should equal bottom padding + bottom border of "ul li a" below*/
+margin: 0;
+text-align: right;
+}
+
+.topmenu ul li{
+display: inline;
+}
+
+.topmenu ul li a{
+color: #3c3c3c; display:inline;
+padding: 0px 0px 0px 10px; /*top padding is 6px, bottom padding is 4px*/
+text-decoration: none;
+
+}
+
+.topmenu ul li a:hover, .topmenu ul li a.selected{
+color: #09507d;
+}
+
+#searchdiv{ width:100%; height:auto; float:right; text-align:right}
+.searcfield{ width:300px; background:url(../images/search.png) #fff no-repeat top left; padding:7px 5px 7px 25px; border: 1px solid #CACACA;
+border-radius: 3px 3px 3px 3px; box-shadow: 0 0 3px rgba(0, 0, 0, 0.2); margin:0 3px 0 0; color:#999999}
+
+
+.mainmenu{
+font-weight: normal;
+width: 75%; float:right
+}
+
+.mainmenu ul{
+padding: 55px 0 10px 0; /*6px should equal top padding of "ul li a" below, 7px should equal bottom padding + bottom border of "ul li a" below*/
+margin: 0;
+text-align: left;
+}
+
+.mainmenu ul li{
+display: inline;
+}
+
+.mainmenu ul li a{
+color: #3d3d3d; display:inline;
+padding: 0px 5px 0px 5px; /*top padding is 6px, bottom padding is 4px*/
+text-decoration: none;
+
+}
+
+.mainmenu ul li a:hover, .mainmenu ul li a.selected{
+color: #09507d;
+}
+
+
+#middle{ width:100%; height:auto; margin:50px 0 0 0; overflow:hidden}
+
+#middle_left{ width:20%; height:auto; float:left}
+
+#middle_right{ width:80%; height:auto; float:right}
+
+.add{ width:106px; height:135px; float:left; text-align:center}
+
+.addlink{ color:#09507d; text-decoration:none; font-weight:bold; font-size:12px}
+.addlink:hover{color:#000; text-decoration:none}
+
+.box {
+    background: #FFFFFF;
+    border: 1px solid #BDBCBD;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 0px 0px 3px #b1b1b1;
+    float: left;
+    height: 200px;
+    margin:0 0px 20px 20px;
+    padding: 10px;
+    text-align: left;
+    width: 224px;}
+	
+	h1{ font-size:20px; color:#105581; padding:0; margin:0; line-height:normal}
+	h4{ font-size:12px; color:#6e6e6e; padding:0; margin:0; line-height:normal; margin:5px 0 5px 0}
+	
+	.icon{ width:58px; height:58px; float:left; margin:50px 0 0 0}
+	
+	.heading_link{ color:#105581; text-decoration:none}
+	.heading_link:hover{ color:#2875a6; text-decoration:none}
+	
+	
+	
+	#tnt_pagination {
+	display:block;
+	text-align:left;
+	height:22px;
+	line-height:21px;
+	clear:both;
+	padding-top:3px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	font-weight:normal;
+	float:right; margin:10px 0 10px 0
+}
+
+#tnt_pagination a:link, #tnt_pagination a:visited{
+	padding:7px;
+	padding-top:2px;
+	padding-bottom:2px;
+	border:1px solid #d4d4d4;
+	margin-left:10px;
+	text-decoration:none;
+	background-color:#fff;
+	color:#105581;
+	width:22px;
+	font-weight:normal;
+}
+
+#tnt_pagination a:hover {
+	background-color:#105581;
+	border:1px solid #BBDDFF;
+	color:#fff;	
+}
+
+#tnt_pagination .active_tnt_link {
+	padding:7px;
+	padding-top:2px;
+	padding-bottom:2px;
+	border:1px solid #BBDDFF;
+	margin-left:10px;
+	text-decoration:none;
+	background-color:#DDEEFF;
+	color:#0072BC;
+	cursor:default;
+}
+
+#tnt_pagination .disabled_tnt_pagination {
+	padding:7px;
+	padding-top:2px;
+	padding-bottom:2px;
+	border:1px solid #EBEBEB;
+	margin-left:10px;
+	text-decoration:none;
+	background-color:#F5F5F5;
+	color:#D7D7D7;
+	cursor:default;
+}
+
+.field1{
+    background: url(../images/inputbg.gif) no-repeat scroll left top #FFFFFF;
+    border-color: #C1C1C1 #EBEBEB #EBEBEB #C1C1C1;
+    border-style: solid;
+    border-width: 1px;
+    color: #666666;
+    font-family: arial,verdana;
+	 width:200px;
+    padding:5px; border-radius: 5px 5px 5px 5px;}
+	
+	.field2{
+    background: url(../images/inputbg.gif) no-repeat scroll left top #FFFFFF;
+    border-color: #C1C1C1 #EBEBEB #EBEBEB #C1C1C1;
+    border-style: solid;
+    border-width: 1px;
+    color: #666666;
+    font-family: arial,verdana;
+    padding:2px; border-radius: 5px 5px 5px 5px;}
+	
+	.field3{
+    background: url(../images/inputbg.gif) no-repeat scroll left top #FFFFFF;
+    border-color: #C1C1C1 #EBEBEB #EBEBEB #C1C1C1;
+    border-style: solid;
+    border-width: 1px;
+    color: #666666;
+    font-family: arial,verdana;
+	 width:400px;
+    padding:5px; border-radius: 5px 5px 5px 5px;}
+	
+	
+	.signup_button{ padding:3px 10px 5px 10px; text-align:center; font-weight:bold; color:#FFFFFF; border:0; border-width:0; background:url(../images/button_bg.jpg) repeat-x; cursor:pointer; border-radius: 5px 5px 5px 5px; }
+	
+#button_bg{background:#FFFFFF; margin:10px 0 10px 0; padding:10px; width:720px; border-radius: 5px 5px 5px 5px; border: 1px solid #D4D4D4;}
+
+.title{ font-size:20px; color:#166496}
+
+
+.newuser_box {
+    background: #FFFFFF;
+    border: 5px solid #BDBCBD;
+    border-radius: 10px;
+    box-shadow: 0px 0px 3px #b1b1b1;
+    height: auto;
+    padding: 10px;
+    text-align: left;
+    width: 450px;}
+	
+	.heading1{ font-size:20px; color:#105581; font-weight:bold}
+	.heading2{ font-size:16px; color:#333333; font-weight:bold}
+	.heading3{ font-size:12px; color:#333333; font-weight:bold}
+	.heading3{ font-size:12px; color:#333333; font-weight:bold}
+	
+	.vertical_line{ width:5px; height:50px; background:#B1B1B1}
+	
+	.icon2{ width:58px; height:58px;border-radius: 50px 50px 50px 0px ; border: 5px solid #BDBCBD; padding:5px; background:#FFFFFF;  -moz-transform: rotate(-45deg); -webkit-transform: rotate(-45deg)}
+	
+		.rotate{ -moz-transform: rotate(45deg); -webkit-transform: rotate(45deg)}
+		
+		
+.staff_avatar_wrap {
+	float: left;
+    margin:0 60px 20px 0px;
+    text-align: center;
+    width: 100px; height: auto;}
+	
+	.staff_avatar{ width:100px; height:100px;border-radius:70px ; background:#FFFFFF}
+	
+	.staff_name {
+    margin:5px 0px 0 0;
+    text-align: center;
+    width: 100px; height:auto}
+	
+	.addstaff_tooltip{ background:url(../images/tooltip_bg.png) no-repeat; width:710px; height:216px; position:absolute; top:300px}
+	
+	.tt{ width:500px; height:auto; float:left; margin:70px 0 0 170px;}
+	

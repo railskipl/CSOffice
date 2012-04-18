@@ -1,0 +1,17 @@
+/* CSS Document */
+
+body{ margin:0; padding:0; font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#4d4d4d; background: url(../images/b_bg.jpg) #f0f0f0; line-height:18px}
+
+#maindiv{ width:100%; height:auto; overflow:hidden; width:650px}
+#wraper{ width:1000px; height:auto; overflow:hidden; text-align:left}
+
+#header{ width:100%; height:auto; margin:10px 0 0 0; overflow:hidden}
+#header_left{ width:50%; height:auto; float:left}
+
+#header_right{ width:50%; height:auto; float:right}
+
+#middle{ width:100%; height:auto; margin:20px 0 0 0; overflow:hidden; border-bottom:1px solid #dedede}
+
+.text1{ color:#09507d; font-weight:bold}
+
+.text2{ color:#000; font-weight:normal}

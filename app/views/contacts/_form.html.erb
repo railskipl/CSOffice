@@ -1,0 +1,240 @@
+
+
+  
+  <%= form_for(@contact, :html=>{:multipart => true}) do |f| %>
+      
+	<div class="tabscontainer">
+     <div class="tabs">
+         <div class="tab selected first" id="tab_menu_1">
+             <div class="link">Personal</div>
+             <div class="arrow"></div>
+         </div>
+         <div class="tab" id="tab_menu_2">
+             <div class="link"><strong>Address1</strong></div>
+             <div class="arrow"></div>
+         </div>
+          <div class="tab last" id="tab_menu_3">
+             <div class="link"><strong>Address2</strong></div>
+             <div class="arrow"></div>
+         </div>
+    </div>
+	<div class="curvedContainer">
+	   
+	   <% if @contact.errors.any? %>
+       <div id="error_explanation">
+         <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
+
+         <ul>
+         <% @contact.errors.full_messages.each do |msg| %>
+           <li><%= msg %></li>
+         <% end %>
+         </ul>
+       </div>
+     <% end %>
+     
+     
+		<div class="tabcontent" id="tab_content_1" style="display:block">
+<table width="100%" border="0" cellspacing="5" cellpadding="5">
+  <tr>
+    <td align="right" valign="middle">First Name</td>
+    <td align="left" valign="middle"><%= f.text_field :first_name, :class=>"field1" %></td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">Middle Name </td>
+    <td align="left" valign="middle"><%= f.text_field :middle_name, :class=>"field1" %></td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">Last Name</td>
+    <td align="left" valign="middle"><%= f.text_field :last_name, :class=>"field1" %></td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">Father First Name</td>
+    <td align="left" valign="middle"><%= f.text_field :father_first_name, :class=>"field1" %></td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">Father Middle Name</td>
+    <td align="left" valign="middle"><%= f.text_field :father_middle_name, :class=>"field1" %></td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">Father Last Name</td>
+    <td align="left" valign="middle"><%= f.text_field :father_last_name, :class=>"field1" %></td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">Is Indian </td>
+    <td align="left" valign="middle">
+      <%= f.radio_button  "is_indian", "Yes", :checked => "checked" %>Yes
+      <%= f.radio_button  "is_indian", "No" %>No
+    </td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">Nationality</td>
+    <td align="left" valign="middle"><%= f.text_field :nationality, :class=>"field1" %></td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">Date of Birth</td>
+    <td align="left" valign="middle">
+            
+            <%= f.date_select("dob", :start_year => 1951, :end_year => Date.current.year - 18)  %>
+    </td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">Gender</td>
+    <td align="left" valign="middle">
+        
+        <%= f.radio_button  "gender", "Male", :checked => "checked" %>Male
+        <%= f.radio_button  "gender", "Female" %>Female
+    </td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">Birth Place </td>
+    <td align="left" valign="middle"><%= f.text_field :birth_place, :class=>"field1" %></td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">Upload Photo</td>
+    <td align="left" valign="middle">
+       <%= f.file_field :photo %>
+    </td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">Pan No.</td>
+    <td align="left" valign="middle"><%= f.text_field :pan_no, :class=>"field1" %></td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">Voter Id</td>
+    <td align="left" valign="middle"><%= f.text_field :voter_id, :class=>"field1" %></td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">Passport No.</td>
+    <td align="left" valign="middle"><%= f.text_field :passport_no, :class=>"field1" %></td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">Driving licence No.</td>
+    <td align="left" valign="middle"><%= f.text_field :driving_licence_no, :class=>"field1" %></td>
+  </tr>
+</table>
+</div>
+		<div class="tabcontent" id="tab_content_2">
+<table width="100%" border="0" cellspacing="5" cellpadding="5">
+  <tr>
+    <td align="right" valign="middle">Permanent Residential Address Line 1</td>
+    <td align="left" valign="middle"><%= f.text_field :per_line1, :class=>"field1" %></td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">Permanent Residential Address Line 2</td>
+    <td align="left" valign="middle"><%= f.text_field :per_line2, :class=>"field1" %></td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">City</td>
+    <td align="left" valign="middle">
+          <%= f.text_field :per_city, :class=>"field1" %>
+     </td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">State</td>
+    <td align="left" valign="middle">
+          <%= f.text_field :per_state, :class=>"field1" %>
+    </td>
+  </tr> 
+  <tr>
+    <td align="right" valign="middle">Pin Code</td>
+    <td align="left" valign="middle">
+          <%= f.text_field :per_pin, :class=>"field1" %>
+    </td>
+  </tr>
+  
+  <tr>
+    <td align="right" valign="middle">ISO Country Code</td>
+    <td align="left" valign="middle"><%= f.text_field :per_ISO, :class=>"field1" %></td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">Country</td>
+    <td align="left" valign="middle">
+        <%= select :contact, :per_country, Country.all.map {|c| [c.country_name]}, :selected => 76 %>
+    </td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">Phone Number</td>
+    <td align="left" valign="middle">
+      <%= f.text_field :per_phone_no, :class=>"field1" %>
+    </td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">Mobile Number</td>
+    <td align="left" valign="middle"><%= f.text_field :per_mobile_no, :class=>"field1" %></td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">Fax Number</td>
+    <td align="left" valign="middle"><%= f.text_field :per_fax_no, :class=>"field1" %></td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">Email-Id</td>
+    <td align="left" valign="middle"><%= f.text_field :per_email_id, :class=>"field1" %></td>
+  </tr>
+  </table>
+		</div>
+	
+		
+		
+		<div class="tabcontent" id="tab_content_3">
+			<table width="100%" border="0" cellspacing="5" cellpadding="5">
+  <tr>
+    <td align="right" valign="middle">Present Residential Address 1</td>
+    <td align="left" valign="middle"><%= f.text_field :present_line1, :class=>"field1" %></td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">Present Residential Address 2</td>
+    <td align="left" valign="middle"><%= f.text_field :present_line2, :class=>"field1" %></td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">City</td>
+    <td align="left" valign="middle"><%= f.text_field :present_city, :class=>"field1" %></td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">State</td>
+    <td align="left" valign="middle"><%= f.text_field :present_state, :class=>"field1" %></td>
+  </tr>
+   
+  <tr>
+     <td align="right" valign="middle">Pin-Code</td>
+     <td align="left" valign="middle"><%= f.text_field :present_pin, :class=>"field1" %></td>
+   </tr>
+  <tr>
+    <td align="right" valign="middle">ISO Country Code</td>
+    <td align="left" valign="middle"><%= f.text_field :present_ISO, :class=>"field1" %></td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">Country</td>
+    <td align="left" valign="middle">
+        <%= select :contact, :present_country, Country.all.map {|c| [c.country_name]}, :selected => 76 %>
+    </td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">Phone Number</td>
+    <td align="left" valign="middle"><label>
+     <%= f.text_field :present_phone_no, :class=>"field1" %>
+   </label></td>
+  </tr>
+  
+  <tr>
+    <td align="right" valign="middle">Fax Number</td>
+    <td align="left" valign="middle"><%= f.text_field :present_fax_no, :class=>"field1" %>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+    </td>
+  </tr>
+  
+  
+  
+  
+  
+  
+  
+</table>
+		</div>
+	</div>
+	
+	
+	<div id="button_bg"><%= f.submit "Save", :class=>"signup_button" %> <%= link_to "Cancel", contacts_path, :class=>"signup_button" %></div>
+</div>
+<% end %>	
+    
+  </div>

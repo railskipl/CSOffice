@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>CS Office</title>
+
+<%= stylesheet_link_tag 'internal', 'vtab', 'screen' %>
+<%= javascript_include_tag 'jquery-1.5.2.min.js' %>
+
+<script language="JavaScript">
+$(document).ready(function() {
+
+    $(".tabs .tab[id^=tab_menu]").click(function() {
+        var curMenu=$(this);
+        $(".tabs .tab[id^=tab_menu]").removeClass("selected");
+        curMenu.addClass("selected");
+
+        var index=curMenu.attr("id").split("tab_menu_")[1];
+        $(".curvedContainer .tabcontent").css("display","none");
+        $(".curvedContainer #tab_content_"+index).css("display","block");
+    });
+});
+</script>
+</head>
+
+<body>
+  <div align="center" id="maindiv">
+  	<%= content_tag 'div', h(flash[:notice]), :class => 'errorMsg', :id => 'notice' if flash[:notice] %>
+      <div id="wraper">
+          <div id="header">
+          <div id="header_left"><a href="#"><img src="/images/logo2.png" alt="" width="99" height="73" border="0" /></a>
+            <div class="mainmenu">
+             <ul>
+
+                <li><%= link_to "Company", {:controller=>"dashboard", :action=>"index"} %></li>
+                <li><%= link_to "Contact", {:controller=>"contacts", :action=>"index"} %></li>
+                <li><%= link_to "Din", {:controller=>"dins", :action=>"index"} %> </li>
+                <li>|</li>
+                <% if current_user.invitation.user_id == nil && (current_user.role? :csadmin) %>
+                <li><%= link_to "My Staff", {:controller=>"staffs", :action=>"index", :id => current_user.id}  %> </li>
+                <% elsif current_user.invitation.user_id != nil && (current_user.role? :staff) %>
+                <li><%= link_to "CS Staff", {:controller=>"staffs", :action=>"index", :id => current_user.id}  %> </li>
+                <% elsif current_user.invitation.user_id != nil && (current_user.role? :company) %>
+                 <li><%= link_to "Company People", {:controller=>"staffs", :action=>"index", :id => current_user.id}  %> </li>
+                <% end %>
+                <li><%= link_to "Me",  user_path(current_user) %></li>
+
+             </ul>
+             </div>
+
+        </div>
+
+
+
+          <div id="header_right"> 
+         <div class="topmenu">
+         <ul><li><%= link_to "Account", user_path(current_user) %></li>
+         <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+
+         <li><%= link_to "Sign out", signout_path, :method => :delete %></li>
+         </ul>
+
+         </div>
+
+         <div id="searchdiv"><input name="" type="text" class="searcfield" /></div>
+
+          </div>
+
+
+
+          </div>
+          
+          
+
+          <%= yield %>
+
+      </div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Contact:</b>
+  <%= @din.contact_id %>
+</p>
+
+<p>
+  <b>Din no:</b>
+  <%= @din.din_no %>
+</p>
+
+<p>
+  <b>Digital signature:</b>
+  <%= @din.digital_signature %>
+</p>
+
+<p>
+  <b>Expiry:</b>
+  <%= @din.expiry %>
+</p>
+
+
+<%= link_to 'Edit', edit_din_path(@din) %> |
+<%= link_to 'Back', dins_path %>
