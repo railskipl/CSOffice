@@ -1,0 +1,2 @@
+module CompsharesHelper
+end

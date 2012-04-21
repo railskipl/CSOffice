@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120412063552) do
+ActiveRecord::Schema.define(:version => 20120418072811) do
 
   create_table "clients", :force => true do |t|
     t.string   "client_name"
@@ -19,6 +19,46 @@ ActiveRecord::Schema.define(:version => 20120412063552) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "compdirs", :force => true do |t|
+    t.integer  "din_id"
+    t.integer  "client_id"
+    t.date     "date"
+    t.integer  "status",         :default => 0
+    t.date     "cessation_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "compdirs", ["client_id"], :name => "index_compdirs_on_client_id"
+  add_index "compdirs", ["din_id"], :name => "index_compdirs_on_din_id"
+
+  create_table "compsharecins", :force => true do |t|
+    t.boolean  "is_director",            :default => false
+    t.boolean  "is_promotor",            :default => false
+    t.integer  "cin"
+    t.string   "name_of_company"
+    t.integer  "company_shareholder_id"
+    t.integer  "client_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "compsharecins", ["client_id"], :name => "index_compsharecins_on_client_id"
+  add_index "compsharecins", ["company_shareholder_id"], :name => "index_compsharecins_on_company_shareholder_id"
+
+  create_table "compshares", :force => true do |t|
+    t.integer  "din_id"
+    t.integer  "client_id"
+    t.date     "date"
+    t.integer  "status",         :default => 0
+    t.date     "cessation_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "compshares", ["client_id"], :name => "index_compshares_on_client_id"
+  add_index "compshares", ["din_id"], :name => "index_compshares_on_din_id"
 
   create_table "contacts", :force => true do |t|
     t.string   "first_name"

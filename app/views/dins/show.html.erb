@@ -1,25 +1,32 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Contact:</b>
-  <%= @din.contact_id %>
-</p>
-
-<p>
-  <b>Din no:</b>
-  <%= @din.din_no %>
-</p>
-
-<p>
-  <b>Digital signature:</b>
-  <%= @din.digital_signature %>
-</p>
-
-<p>
-  <b>Expiry:</b>
-  <%= @din.expiry %>
-</p>
-
-
-<%= link_to 'Edit', edit_din_path(@din) %> |
-<%= link_to 'Back', dins_path %>
+<table width="100%" border="0" cellspacing="5" cellpadding="5">
+  <tr>
+    <td align="right" valign="middle"><img src="images/avatar.jpg" alt="" width="78" height="80" /></td>
+    <td align="left" valign="middle">&nbsp;</td>
+    <td align="left" valign="middle">&nbsp;</td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">Contact</td>
+    <td align="left" valign="middle">:</td>
+    <td align="left" valign="middle"><strong><%= @din.contact_id %></strong></td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">Din Number</td>
+    <td align="left" valign="middle">:</td>
+    <td align="left" valign="middle"><strong><%= @din.din_no %></strong></td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">Digital Signature</td>
+    <td align="left" valign="middle">:</td>
+    <td align="left" valign="middle"><strong><%= @din.digital_signature %></strong></td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">Expiry</td>
+    <td align="left" valign="middle">:</td>
+    <td align="left" valign="middle"><strong> <%= @din.expiry %> </strong></td>
+  </tr>
+  
+  
+  
+  
+  
+</table>

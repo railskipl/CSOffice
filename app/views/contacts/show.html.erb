@@ -1,187 +1,229 @@
-<p id="notice"><%= notice %></p>
-
-
-<p>
-  <b>First name:</b>
-  <%= @contact.first_name %>
-</p>
-
-<p>
-  <b>Middle name:</b>
-  <%= @contact.middle_name %>
-</p>
-
-<p>
-  <b>Last name:</b>
-  <%= @contact.last_name %>
-</p>
-
-<p><b>Photo:</b> <%= image_tag @contact.photo.url(:thumb) %>
-
-</p>
-
-<p>
-  <b>Father first name:</b>
-  <%= @contact.father_first_name %>
-</p>
-
-<p>
-  <b>Father middle name:</b>
-  <%= @contact.father_middle_name %>
-</p>
-
-<p>
-  <b>Father last name:</b>
-  <%= @contact.father_last_name %>
-</p>
-
-<p>
-  <b>Is indian:</b>
-  <%= @contact.is_indian %>
-</p>
-
-<p>
-  <b>Nationality:</b>
-  <%= @contact.nationality %>
-</p>
-
-<p>
-  <b>Dob:</b>
-  <%= @contact.dob %>
-</p>
-
-<p>
-  <b>Gender:</b>
-  <%= @contact.gender %>
-</p>
-
-<p>
-  <b>Birth place:</b>
-  <%= @contact.birth_place %>
-</p>
-
-<p>
-  <b>Pan no:</b>
-  <%= @contact.pan_no %>
-</p>
-
-<p>
-  <b>Voter:</b>
-  <%= @contact.voter_id %>
-</p>
-
-<p>
-  <b>Passport no:</b>
-  <%= @contact.passport_no %>
-</p>
-
-<p>
-  <b>Driving licence no:</b>
-  <%= @contact.driving_licence_no %>
-</p>
-
-<p>
-  <b>Per line1:</b>
-  <%= @contact.per_line1 %>
-</p>
-
-<p>
-  <b>Per line2:</b>
-  <%= @contact.per_line2 %>
-</p>
-
-<p>
-  <b>Per city:</b>
-  <%= @contact.per_city %>
-</p>
-
-<p>
-  <b>Per state:</b>
-  <%= @contact.per_state %>
-</p>
-
-<p>
-  <b>Per pin:</b>
-  <%= @contact.per_pin %>
-</p>
-
-<p>
-  <b>Per iso:</b>
-  <%= @contact.per_ISO %>
-</p>
-
-<p>
-  <b>Per country:</b>
-  <%= @contact.per_country %>
-</p>
-
-<p>
-  <b>Per phone no:</b>
-  <%= @contact.per_phone_no %>
-</p>
-
-<p>
-  <b>Per mobile no:</b>
-  <%= @contact.per_mobile_no %>
-</p>
-
-<p>
-  <b>Per fax no:</b>
-  <%= @contact.per_fax_no %>
-</p>
-
-<p>
-  <b>Per email:</b>
-  <%= @contact.per_email_id %>
-</p>
-
-<p>
-  <b>Present line1:</b>
-  <%= @contact.present_line1 %>
-</p>
-
-<p>
-  <b>Present line2:</b>
-  <%= @contact.present_line2 %>
-</p>
-
-<p>
-  <b>Present city:</b>
-  <%= @contact.present_city %>
-</p>
-
-<p>
-  <b>Present state:</b>
-  <%= @contact.present_state %>
-</p>
-
-<p>
-  <b>Present pin:</b>
-  <%= @contact.present_pin %>
-</p>
-
-<p>
-  <b>Present iso:</b>
-  <%= @contact.present_ISO %>
-</p>
-
-<p>
-  <b>Present country:</b>
-  <%= @contact.present_country %>
-</p>
-
-<p>
-  <b>Present phone no:</b>
-  <%= @contact.present_phone_no %>
-</p>
-
-<p>
-  <b>Present fax no:</b>
-  <%= @contact.present_fax_no %>
-</p>
-
-
-
-
-<%= link_to 'Edit', edit_contact_path(@contact) %> |
-<%= link_to 'Back', contacts_path %>
+<div id="middle">
+  	<div class="tabscontainer">
+     <div class="tabs">
+         <div class="tab selected first" id="tab_menu_1">
+             <div class="link">Personal</div>
+             <div class="arrow"></div>
+         </div>
+         <div class="tab" id="tab_menu_2">
+             <div class="link"><strong>Address1</strong></div>
+             <div class="arrow"></div>
+         </div>
+          <div class="tab last" id="tab_menu_3">
+             <div class="link"><strong>Address2</strong></div>
+             <div class="arrow"></div>
+         </div>
+      </div>
+	<div class="curvedContainer">
+		<div class="tabcontent" id="tab_content_1" style="display:block">
+<table width="100%" border="0" cellspacing="5" cellpadding="5">
+  <tr>
+    <td align="right" valign="middle"><img src="images/avatar.jpg" alt="" width="78" height="80" /></td>
+    <td align="left" valign="middle">&nbsp;</td>
+    <td align="left" valign="middle">&nbsp;</td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">First Name</td>
+    <td align="left" valign="middle">:</td>
+    <td align="left" valign="middle"><strong><%= @contact.first_name %></strong></td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">Middle Name </td>
+    <td align="left" valign="middle">:</td>
+    <td align="left" valign="middle"><strong><%= @contact.middle_name %></strong></td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">Last Name</td>
+    <td align="left" valign="middle">:</td>
+    <td align="left" valign="middle"><strong><%= @contact.last_name %></strong></td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">Father First Name</td>
+    <td align="left" valign="middle">:</td>
+    <td align="left" valign="middle"><strong><%= @contact.father_first_name %></strong></td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">Father Middle Name</td>
+    <td align="left" valign="middle">:</td>
+    <td align="left" valign="middle"><strong><%= @contact.father_middle_name %> </strong></td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">Father Last Name</td>
+    <td align="left" valign="middle">:</td>
+    <td align="left" valign="middle"><strong><%= @contact.father_last_name %></strong></td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">Is Indian </td>
+    <td align="left" valign="middle">:</td>
+    <td align="left" valign="middle"><strong>
+      <label>
+      <%= @contact.is_indian %></label>
+    </strong></td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">Nationality</td>
+    <td align="left" valign="middle">:</td>
+    <td align="left" valign="middle"><strong><%= @contact.nationality %></strong></td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">Date of Birth</td>
+    <td align="left" valign="middle">:</td>
+    <td align="left" valign="middle"><strong>
+      <label>5<sup>th</sup> <%= @contact.dob %> </label>
+    </strong></td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">Gender</td>
+    <td align="left" valign="middle">:</td>
+    <td align="left" valign="middle"><strong><%= @contact.gender %>  </strong></td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">Birth Place </td>
+    <td align="left" valign="middle">:</td>
+    <td align="left" valign="middle"><strong><%= @contact.birth_place %></strong></td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">Pan No.</td>
+    <td align="left" valign="middle">:</td>
+    <td align="left" valign="middle"><strong><%= @contact.pan_no %></strong></td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">Voter Id</td>
+    <td align="left" valign="middle">:</td>
+    <td align="left" valign="middle"><strong><%= @contact.voter_id %></strong></td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">Passport No.</td>
+    <td align="left" valign="middle">:</td>
+    <td align="left" valign="middle"><strong><%= @contact.passport_no %></strong></td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">Driving licence No.</td>
+    <td align="left" valign="middle">:</td>
+    <td align="left" valign="middle"><strong><%= @contact.driving_licence_no %></strong></td>
+  </tr>
+</table>
+</div>
+		<div class="tabcontent" id="tab_content_2">
+<table width="100%" border="0" cellspacing="5" cellpadding="5">
+  <tr>
+    <td align="right" valign="middle">Line 1</td>
+	<td align="left" valign="middle">:</td>
+    <td align="left" valign="middle"><strong><%= @contact.per_line1 %></strong></td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">Line 2</td>
+	<td align="left" valign="middle">:</td>
+    <td align="left" valign="middle"><strong><%= @contact.per_line2 %></strong></td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">City</td>
+	<td align="left" valign="middle">:</td>
+    <td align="left" valign="middle"><strong><%= @contact.per_city %></strong></td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">State</td>
+	<td align="left" valign="middle">:</td>
+    <td align="left" valign="middle"><strong><%= @contact.per_state %></strong></td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">Pin</td>
+	<td align="left" valign="middle">:</td>
+    <td align="left" valign="middle"><strong><%= @contact.per_pin %></strong></td>
+  </tr>
+  <tr>
+  <tr>
+    <td align="right" valign="middle">ISO</td>
+	<td align="left" valign="middle">:</td>
+    <td align="left" valign="middle"><strong><%= @contact.per_ISO %></strong></td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">Country</td>
+	<td align="left" valign="middle">:</td>
+    <td align="left" valign="middle"><strong><%= @contact.per_country %></strong></td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">Phone No</td>
+	<td align="left" valign="middle">:</td>
+    <td align="left" valign="middle"><strong> <%= @contact.per_phone_no %></strong>      </label></td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">Mobile No</td>
+	<td align="left" valign="middle">:</td>
+    <td align="left" valign="middle"><strong><%= @contact.per_mobile_no %></strong></td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">Fax No</td>
+	<td align="left" valign="middle">:</td>
+    <td align="left" valign="middle"><strong><%= @contact.per_fax_no %></strong></td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">Email Id</td>
+	<td align="left" valign="middle">:</td>
+    <td align="left" valign="middle"><strong><%= @contact.per_email_id %></strong></td>
+  </tr>
+  
+  
+  
+  
+  
+  
+</table>
+		</div>
+		<div class="tabcontent" id="tab_content_3">
+			<table width="100%" border="0" cellspacing="5" cellpadding="5">
+  <tr>
+    <td align="right" valign="middle">Line 1</td>
+	<td align="left" valign="middle">:</td>
+    <td align="left" valign="middle"><strong><%= @contact.present_line1 %></strong></td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">Line 2</td>
+	<td align="left" valign="middle">:</td>
+    <td align="left" valign="middle"><strong> <%= @contact.present_line2 %></strong></td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">City</td>
+	<td align="left" valign="middle">:</td>
+    <td align="left" valign="middle"><strong><%= @contact.present_city %></strong></td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">State</td>
+	<td align="left" valign="middle">:</td>
+    <td align="left" valign="middle"><strong><%= @contact.present_state %></strong></td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">Pin</td>
+	<td align="left" valign="middle">:</td>
+    <td align="left" valign="middle"><strong><%= @contact.present_pin %></strong></td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">ISO</td>
+	<td align="left" valign="middle">:</td>
+    <td align="left" valign="middle"><strong><%= @contact.present_ISO %></strong></td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">Country</td>
+	<td align="left" valign="middle">:</td>
+    <td align="left" valign="middle"><strong> <%= @contact.present_country %></strong></td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">Phone No</td>
+	<td align="left" valign="middle">:</td>
+    <td align="left" valign="middle"><strong><%= @contact.present_phone_no %></strong>      </label></td>
+  </tr>
+  <tr>
+    <td align="right" valign="middle">Fax No</td>
+	<td align="left" valign="middle">:</td>
+    <td align="left" valign="middle"><strong><%= @contact.present_fax_no %></strong></td>
+  </tr>
+  
+  
+  
+  
+  
+  
+</table>
+		</div>
+	</div>
+	</div>

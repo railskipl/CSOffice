@@ -1,4 +1,4 @@
-  <% if !signed_in? %>
+<% if !signed_in? %>
   <div id="middle">
     <div id="middle_left">
 	
@@ -47,11 +47,11 @@
 	
 	<div></div>
   </div>
-  <% else %>
+<% else %>
     
   </div>
   
-  
+  <% if current_user.role? :csadmin %>
   <div align="center" id="middle">
   <div class="icon2"><div class="rotate"><img src="images/icon2.png" alt="" border="0" /></div></div>
    <%= form_for(@invitation) do |f| %>
@@ -135,6 +135,7 @@ Add to all projects</a></div>
  <div class="heading3" style="margin:10px">Each person will get an email with a link to your account.</div>
  </div>
     <% end %>
+	<% end %>
 	<% end %>
 
 
