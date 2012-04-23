@@ -34,7 +34,9 @@ $(document).ready(function() {
 
                 <li><%= link_to "Company", {:controller=>"dashboard", :action=>"index"} %></li>
                 <li><%= link_to "Contact", {:controller=>"contacts", :action=>"index"} %></li>
+                <% if concurrent_din %>
                 <li><%= link_to "Din", {:controller=>"dins", :action=>"index"} %> </li>
+                <% end %>
                 <li>|</li>
                 <% if current_user.invitation.user_id == nil && (current_user.role? :csadmin) %>
                 <li><%= link_to "My Staff", {:controller=>"staffs", :action=>"index", :id => current_user.id}  %> </li>
@@ -73,7 +75,7 @@ $(document).ready(function() {
           
 
           <%= yield %>
-
+         </div>
       </div>
 
     </div>

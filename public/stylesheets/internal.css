@@ -43,11 +43,12 @@ border-radius: 3px 3px 3px 3px; box-shadow: 0 0 3px rgba(0, 0, 0, 0.2); margin:0
 
 .mainmenu{
 font-weight: normal;
-width: 75%; float:right
+width: 75%; float:right;
+padding-top:55px
 }
 
 .mainmenu ul{
-padding: 55px 0 10px 0; /*6px should equal top padding of "ul li a" below, 7px should equal bottom padding + bottom border of "ul li a" below*/
+padding: 0px 0 0px 0; /*6px should equal top padding of "ul li a" below, 7px should equal bottom padding + bottom border of "ul li a" below*/
 margin: 0;
 text-align: left;
 }
@@ -103,7 +104,7 @@ color: #09507d;
 	
 	#tnt_pagination {
 	display:block;
-	text-align:left;
+	text-align:right;
 	height:22px;
 	line-height:21px;
 	clear:both;
@@ -111,7 +112,7 @@ color: #09507d;
 	font-family:Arial, Helvetica, sans-serif;
 	font-size:12px;
 	font-weight:normal;
-	float:right; margin:10px 0 10px 0
+	 margin:10px 0 10px 0
 }
 
 #tnt_pagination a:link, #tnt_pagination a:visited{
@@ -229,7 +230,10 @@ color: #09507d;
     text-align: center;
     width: 100px; height:auto}
 	
-	.addstaff_tooltip{ background:url(../images/tooltip_bg.png) no-repeat; width:710px; height:216px; position:absolute; top:300px}
+	.addstaff_tooltip{ background:url(../images/tooltip_bg.png) no-repeat; width:710px; height:216px; position:absolute; top:300px;}
+	
+*:first-child+html .addstaff_tooltip
+{top:300px; left:180px}
 	
 	.tt{ width:500px; height:auto; float:left; margin:70px 0 0 170px;}
 	

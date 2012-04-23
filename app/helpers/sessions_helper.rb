@@ -21,6 +21,10 @@ def sign_out
   cookies.delete(:remember_token)
   self.current_user = nil
 end
+def concurrent_din
+ (current_user.role? :csadmin) && Contact.find_by_user_id(current_user.id) != nil || 
+ (current_user.role? :staff) && Contact.find_by_user_id(current_user.invitation.user_id) != nil
+end
 private
 
 def user_from_remember_token

@@ -1,0 +1,2 @@
+class CompsharesController < ApplicationController
+end
