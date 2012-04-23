@@ -31,13 +31,13 @@
 <div class="icon"><a href="#"><img src="/images/icon.jpg" alt="" border="0" /></a></div>
 
 </div>
-
-<div class="box"><h1><a href="#" class="heading_link">Explore Basecamp!</a></h1>
-<h4>A sample project to help you discover Basecamp.</h4>
-<div>8 discussions, 11 to-dos, 17 files, 3 documents</div>
+<% @clients.each do |client|%>
+<div class="box"><h1><%= link_to "#{client.client_name}", {:action=>"show", :controller=>"clients", :id => client.id },  :class=>"heading_link"%></a></h1>
+<h4>The application is been submitted by <%= client.applicant_name %></h4>
+<div> The Client has been added by <%= User.find_by_id(client.user_id).name %></div>
 <div class="icon"><a href="#" class="heading_link"><img src="/images/icon.jpg" alt="" border="0" /></a></div>
-
 </div>
+<% end %>
 
 <div id="tnt_pagination">
 <span class="disabled_tnt_pagination">Prev</span><a href="#1">1</a><a href="#2">2</a><a href="#3">3</a><a href="#forwaed">Next</a></div>

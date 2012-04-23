@@ -1,4 +1,5 @@
 Csapp::Application.routes.draw do
+
 match '/users/:id/staffs', :to => "staffs#index"
 
 resources :clients
@@ -11,7 +12,8 @@ match '/contacts/:id/delete', :to => "contacts#destroy"
 resources :users 
 resources :staffs
 
-
+resources :compdirs
+resources :requirements
 resources :sessions, :only => [:new, :create, :destroy ]
 resources :dashboard, :only => [:index ]
 

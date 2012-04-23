@@ -1,29 +1,43 @@
-<h1>Listing dins</h1>
+<%= link_to 'New Din', new_din_path, :class=>"title" %>
 
-<table>
-  <tr>
-    <th>Contact</th>
-    <th>Din no</th>
-    <th>Digital signature</th>
-    <th>Expiry</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @dins.each do |din| %>
-  <tr>
-    <td><%= din.contact_id %></td>
-    <td><%= din.din_no %></td>
-    <td><%= din.digital_signature %></td>
-    <td><%= din.expiry %></td>
-    <td><%= link_to 'Show', din %></td>
-    <td><%= link_to 'Edit', edit_din_path(din) %></td>
-    <td><%= link_to 'Destroy', din, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Din', new_din_path %>
+<div align="center" id="middle">
+  <table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
+				<tr>
+					<th align="center" valign="middle" class="table-header-repeat line-left minwidth-1"><a href="">Name</a>	</th>
+					<th align="center" valign="middle" class="table-header-repeat line-left"><a href="">Din No</a></th>
+					<th align="center" valign="middle" class="table-header-options line-left"><a href="">Digital Signature</a></th>
+					<th align="center" valign="middle" class="table-header-options line-left"><a href="">Expiry</a></th>
+					<th align="center" valign="middle" class="table-header-options line-left"><a href="">Actions</a></th>
+				</tr>
+				
+				<% @dins.each do |din| %>
+				<tr>
+					<td><%= Contact.find_by_id(din.contact_id).first_name %>
+						<%= Contact.find_by_id(din.contact_id).middle_name %>
+						<%= Contact.find_by_id(din.contact_id).last_name %></td>
+					<td><%= din.din_no %></td>
+					<td><%= din.digital_signature %></td>
+					<td><%= din.expiry %></td>
+					<td class="options-width">
+					    
+					    <%= link_to '', din, :class=>"icon-1 info-tooltip" %>
+					    <%= link_to '', edit_din_path(din), :class=>"icon-2 info-tooltip" %>
+					    <a href="/contacts/<%= din.id %>/delete" onclick="if(confirm('Are you sure you want to delete this contact?'))  return true;  else  return false;" class="icon-3 info-tooltip" ></a>
+					    						
+					</td>
+				</tr>
+				<% end %>
+					
+	  </table>
+	  
+	  <table border="0" cellpadding="0" cellspacing="0" id="paging-table">
+			<tr>
+			<td>
+				<a href= "" class="page-far-left"></a>
+				<a href="" class="page-left"></a>
+				<div id="page-info">Page <strong>1</strong> / 15</div>
+				<a href="" class="page-right"></a>
+				<a href="" class="page-far-right"></a>			</td>
+			</tr>
+			</table>
+</div>

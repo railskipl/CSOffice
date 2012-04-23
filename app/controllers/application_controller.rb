@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   
   layout :layout_by_resource
   
+  
   def layout_by_resource
   if signed_in?
     "dashboard"

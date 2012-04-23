@@ -2,9 +2,9 @@
 <h3>Company Secretary <%= @user.name %> </h3>
 <% elsif @user.invitation.user_id != nil && (@user.role? :staff) %> 
 <h3> Staff <%= @user.name %> belongs to CS <%= link_to User.find_by_id(@user.invitation.user_id).name,
-                                           {:controller => "users", :action => "show", :id => User.find_by_id(@user.invitation.user_id)} %></h3>
+           {:controller => "users", :action => "show", :id => User.find_by_id(@user.invitation.user_id)} %></h3>
 <% elsif @user.invitation.user_id != nil && (@user.role? :company) %> 
 <h3> Company <%= @user.name %> belongs to CS <%= link_to User.find_by_id(@user.invitation.user_id).name,
-                                           {:controller => "users", :action => "show", :id => User.find_by_id(@user.invitation.user_id)} %></h3>
+           {:controller => "users", :action => "show", :id => User.find_by_id(@user.invitation.user_id)} %></h3>
 <% end %>
 <strong> Email </strong>   : <%= @user.email %><br/>
