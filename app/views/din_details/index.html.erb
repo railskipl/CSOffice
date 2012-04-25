@@ -1,0 +1,120 @@
+ <div align="center" id="middle">
+    <div class="newuser_box">
+	 <a id="various1" href="#inline1" title="" class="addlink">Company Director</a>
+	  <p><a id="various2" href="#inline2" title="" class="addlink"> Company Share Holder</a></p>
+    </div>
+	
+	
+		<div style="display:none">
+		
+		<div id="inline1" style="width:400px; height:auto; overflow:auto; text-align:left">
+<div>
+<%= form_for(@compdir) do |f| %>
+  <% if @compdir.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@compdir.errors.count, "error") %> prohibited this client from being saved:</h2>
+
+      <ul>
+      <% @compdir.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<table width="100%" border="0" cellspacing="5" cellpadding="5">
+  <tr>
+    <td align="left" valign="middle"><strong>Select Din</strong></td>
+    <td align="center" valign="middle">:</td>
+    <td><%= select  :compdir, :din_id, @din_curr.map {|c| ["#{Contact.find_by_id(c.contact_id).first_name}", c.id]} %></td>
+  </tr>
+  <tr>
+<td align="left" valign="middle"><strong>Select Client</strong></td>
+    <td align="center" valign="middle">:</td>
+    <td><%= select  :compdir, :client_id, @clients.map {|c| ["#{c.client_name}", c.id]} %></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td> <%= f.submit "Save", :class=>"signup_button" %></td>
+  </tr>
+</table>
+<% end %>
+<div class="heading1">List of added directors</div>
+<div>
+<div>
+
+<ol> 
+      <li><strong>director 1</strong></li>
+	  <li><strong>director 2</strong></li>
+	  <li><strong>director 3</strong></li>
+    </ol>
+     
+</div>
+</div>
+</div>
+		</div>
+		
+</div>
+
+
+
+
+
+
+
+
+<div style="display:none">
+		
+		<div id="inline2" style="width:400px; height:auto; overflow:auto; text-align:left">
+<div>
+	<%= form_for(@compshare) do |f| %>
+  <% if @compshare.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@compshare.errors.count, "error") %> prohibited this client from being saved:</h2>
+
+      <ul>
+      <% @compshare.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<table width="100%" border="0" cellspacing="5" cellpadding="5">
+  <tr>
+    <td align="left" valign="middle"><strong>Select Share Holder</strong></td>
+    <td align="center" valign="middle">:</td>
+    <td><%= select  :compdir, :din_id, @din_currshr.map {|c| ["#{Contact.find_by_id(c.contact_id).first_name}", c.id]} %></td>
+  </tr>
+  <tr>
+<td align="left" valign="middle"><strong>Select Client:</strong></td>
+    <td align="center" valign="middle">:</td>
+    <td><%= select  :compdir, :client_id, @clientshr.map {|c| ["#{c.client_name}", c.id]} %></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td><%= f.submit "Save", :class=>"signup_button" %></td>
+  </tr>
+</table>
+<% end %>
+<div class="heading1">List of added Shareholders</div>
+<div>
+<div>
+
+<ol>
+      <li><strong>Shareholder 1</strong></li>
+	  <li><strong>Shareholder 2</strong></li>
+	  <li><strong>Shareholder 3</strong></li>
+    </ol>
+
+</div>
+</div>
+</div>
+		</div>
+		
+</div>
+   
+ </div>
+ </div>
+ 

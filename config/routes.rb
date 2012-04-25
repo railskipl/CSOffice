@@ -11,8 +11,9 @@ match '/contacts/:id/delete', :to => "contacts#destroy"
 
 resources :users 
 resources :staffs
-
+resources :din_details
 resources :compdirs
+resources :compshares
 resources :requirements
 resources :sessions, :only => [:new, :create, :destroy ]
 resources :dashboard, :only => [:index ]
