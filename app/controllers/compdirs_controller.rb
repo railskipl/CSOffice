@@ -8,7 +8,8 @@ class CompdirsController < ApplicationController
   def create
     @compdir = Compdir.new(params[:compdir])
       if @compdir.save
-        redirect_to @compdir
+        redirect_to requirements_path
+        flash[:notice] = "Thank you, the Company Director was successfully created."
       else
         render action "new"
       end

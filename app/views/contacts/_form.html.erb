@@ -218,7 +218,11 @@
   <tr>
     <td align="right" valign="middle">Fax Number</td>
     <td align="left" valign="middle"><%= f.text_field :present_fax_no, :class=>"field1" %>
+  <% if current_user.role?    :csadmin %>
     <%= f.hidden_field :user_id, :value => current_user.id %>
+  <% elsif current_user.role? :staff %>
+    <%= f.hidden_field :user_id, :value => current_user.invitation.user_id %>
+  <% end %>
     </td>
   </tr>
   
