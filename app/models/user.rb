@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   
   attr_accessible :login, :email, :name, :password, :password_confirmation, :invitation_token, :role_ids, :user_id
   
+  has_many :dins
   #remember me functionality.
   before_create { genrate_tokn(:password_reset_token) }
 
