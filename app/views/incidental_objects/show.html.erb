@@ -1,0 +1,12 @@
+<br>
+<p>
+  <strong>Incidental Object:</strong><br><br>
+  <%= @incidental_object.title %><br><br>
+  <div align="justify"> <%= @incidental_object.description %></div>
+</p>
+<br><br>
+<p>
+  <%= link_to "Edit", edit_incidental_object_path(@incidental_object) %> |
+  <%= link_to "Destroy", @incidental_object, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", incidental_objects_path %>
+</p>

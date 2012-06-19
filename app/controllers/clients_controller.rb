@@ -1,8 +1,9 @@
-class ClientsController < BaseController
+class ClientsController < ApplicationController
   # GET /clients
   # GET /clients.xml
+     
   def index
-    @clients = Client.all
+    @clients = Client.find_all_by_user_id(current_user.id)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,10 +15,15 @@ class ClientsController < BaseController
   # GET /clients/1.xml
   def show
     @client = Client.find(params[:id])
+    
+   if @client.user_id == current_user.id || Clientuser.find_by_client_id(@client.id).recipient == current_user.id
 
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @client }
+    end
+    else
+       redirect_to("/dashboard",:notice => 'You cannot access this page')  
     end
   end
 
@@ -35,6 +41,13 @@ class ClientsController < BaseController
   # GET /clients/1/edit
   def edit
     @client = Client.find(params[:id])
+      if @client.user_id == current_user.id
+       respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @client }
+    end
+    else
+  redirect_to("/dashboard",:notice => 'You cannot access this page')    end
   end
 
   # POST /clients
@@ -74,9 +87,13 @@ class ClientsController < BaseController
   def destroy
     @client = Client.find(params[:id])
     @client.destroy
+
     respond_to do |format|
       format.html { redirect_to(clients_url) }
       format.xml  { head :ok }
     end
   end
+  
+
+ 
 end

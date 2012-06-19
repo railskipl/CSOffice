@@ -1,0 +1,2 @@
+module IncorporatedCompanyNamesHelper
+end

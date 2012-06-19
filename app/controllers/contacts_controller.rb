@@ -1,8 +1,9 @@
 class ContactsController < BaseController
   # GET /contacts
   # GET /contacts.xml
+ 
   def index
-    @contacts = Contact.paginate(:page => params[:page], :per_page => 2)
+    @contacts = Contact.find_all_by_user_id(current_user.id).paginate(:page => params[:page], :per_page => 2)
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @contacts }
@@ -13,10 +14,13 @@ class ContactsController < BaseController
   # GET /contacts/1.xml
   def show
     @contact = Contact.find(params[:id])
-
+     if @contact.user_id == current_user.id
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @contact }
+    end
+    else
+      redirect_to "/"
     end
   end
 
@@ -34,6 +38,15 @@ class ContactsController < BaseController
   # GET /contacts/1/edit
   def edit
     @contact = Contact.find(params[:id])
+      if @contact.user_id == current_user.id
+       respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @contact }
+    end
+    else
+      redirect_to "/"
+    end
+         
   end
 
   # POST /contacts
@@ -79,4 +92,5 @@ class ContactsController < BaseController
       format.xml  { head :ok }
     end
   end
+
 end

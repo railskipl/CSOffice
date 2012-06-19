@@ -1,0 +1,27 @@
+<div align="center" id="middle">
+    <div class="newuser_box">
+
+<%= form_for(@company_name) do |f| %>
+<table> 
+	<tr>
+		<th align="justify"><%= f.label "Name :" %></th>
+		<td><%= f.collection_select :name, ProposedName.find_all_by_client_id(params[:client_id]), :pro_name, :pro_name %></td>
+	</tr>
+
+	<tr>
+		<td>
+		<div class="actions">
+		<%= f.submit "Save",:class=>"signup_button"  %>
+		</div>
+		</td>
+		
+	</tr>
+<% end %>
+</table>
+
+
+<p>
+  <%= link_to "Show", @company_name %> 
+ 
+</p>
+</div></div>

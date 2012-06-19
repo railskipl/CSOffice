@@ -4,7 +4,7 @@ class CreateCompshares < ActiveRecord::Migration
       t.integer  :din_id
       t.integer  :client_id
       t.date     :date
-      t.integer  :status,            :default => 0
+      t.integer  :status            
       t.date     :cessation_date
       t.timestamps
     end

@@ -1,0 +1,68 @@
+<div align="center" id="middle">
+    <div class="newuser_box">
+<script>
+	function disableElement1()
+{
+
+document.getElementById("compshare_cessation_date_1i").disabled=true;
+
+document.getElementById("compshare_cessation_date_2i").disabled=true;
+
+document.getElementById("compshare_cessation_date_3i").disabled=true;
+}
+
+function enableElement1(){
+document.getElementById("compshare_cessation_date_1i").disabled=false;
+
+document.getElementById("compshare_cessation_date_2i").disabled=false;
+
+document.getElementById("compshare_cessation_date_3i").disabled=false;
+}
+
+</script>
+<%= form_for(@compshare) do |f| %>
+  <% if @compshare.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@compshare.errors.count, "error") %> prohibited this client from being saved:</h2>
+
+      <ul>
+      <% @compshare.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<table width="100%" border="0" cellspacing="5" cellpadding="5">
+  
+   <tr>    
+   	  <td>
+    	Status : <br>
+    
+		
+      	<%= f.radio_button :status ,0,:onclick=>'disableElement1()' %>Promoter<br>
+    	<%= f.radio_button :status ,1 ,:onclick=>'disableElement1()'%>Current_Shareholder<br>
+    	<%= f.radio_button :status ,2,:onclick=>'enableElement1()' ,:checked => true%>Old Shareholder
+    </td> 
+   
+   <tr><td>Appointment Date :<br> <%= f.date_select :date %><br>
+   	       Cessation Date :<br> <%= f.date_select   :cessation_date %>  </td>
+   	       
+   	<tr>
+    <td><%= f.label :is_director %>
+        <%= f.check_box :is_director %></td></tr>
+        <tr>  
+        <td><%= f.label :is_promoter %>
+        <%= f.check_box :is_promoter %></td></tr> 
+       <tr><td><%= f.label :name_of_company%>
+       	<%= f.text_field :name_of_company,:size =>15 %><td></tr>
+          
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td><%= f.submit "Update", :class=>"signup_button" %></td>
+  </tr>
+</table>
+<% end %>
+    </div>
+</div>

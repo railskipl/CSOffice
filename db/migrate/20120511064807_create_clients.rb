@@ -3,7 +3,6 @@ class CreateClients < ActiveRecord::Migration
     create_table :clients do |t|
       t.string :client_name
       t.string :applicant_name
-      t.integer :user_id
 
       t.timestamps
     end

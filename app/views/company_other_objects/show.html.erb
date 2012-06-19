@@ -1,0 +1,13 @@
+<div align="center" id="middle">
+    <div class="newuser_box">
+<p>
+  <strong>Other Objects</strong><br><br>
+  <div align="justify"> <%= @company_other_object.description %></div>
+</p>
+<br><br>
+<p>
+  <%= link_to "Edit", edit_company_other_object_path(@company_other_object) %> |
+  <%= link_to "Destroy", @company_other_object, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", company_other_objects_path %>
+</p>
+</div></div>

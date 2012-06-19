@@ -1,0 +1,46 @@
+ <div align="center" id="middle">
+    <div class="newuser_box">
+	 <a id="various3" href="#inline3" title="" class="addlink">Form1a</a>
+	  <p><a id="various4" href="#inline4" title="" class="addlink">Proposed names </a></p>
+	  <p><a id="various15" href="#inline15" title="" class="addlink">Company names </a></p>
+    </div>
+    
+	<div style="display:none">
+		
+		<div id="inline3" style="width:700px; height:auto; overflow:auto; text-align:left">
+<div>  
+	<% unless @form1as.nil? %>
+		<%= render 'form1as/show' %>
+	
+	<%else%>
+
+	<%= render 'form1as/form' %>
+	</div>
+	<%end%>
+	
+	<div style="display:none">
+		
+		<div id="inline4" style="width:500px; height:auto; overflow:auto; text-align:left">
+<div>
+	
+	
+	
+	<%= render 'proposed_names/index' %>
+	
+	</div>
+	
+</div>
+</div>
+<div style="display:none">
+		
+		<div id="inline15" style="width:500px; height:300px; overflow:auto; text-align:left">
+<div>
+	
+	
+	
+	<%= render 'company_names/index' %>
+	
+	</div>
+	
+</div>
+</div>

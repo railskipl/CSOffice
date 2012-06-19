@@ -1,0 +1,25 @@
+
+<%= form_for(@proposed_name) do |f| %>
+<table> 
+	<tr>
+		<th align="justify"><%= f.label "Proposed name :" %></th>
+		<td><%= f.text_field :pro_name %></td>
+	</tr>
+
+	<tr>
+		<th align="justify"><%= f.label "Significance of name :" %></th>
+		<td><%= f.text_field :significance_of_name %></td>
+	</tr>
+
+    <%= f.hidden_field :client_id, :value => "#{params[:client_id]}" %>
+	<tr>
+		<td>
+		<div class="actions">
+		<%= f.submit "Save",:class=>"signup_button"  %>
+		</div>
+		</td>
+		
+	</tr>
+<% end %>
+</table>
+

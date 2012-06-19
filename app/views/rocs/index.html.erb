@@ -1,0 +1,10 @@
+
+
+<% @rocs.each do |roc| %>
+	<%= roc.roc_name%>
+   <%= link_to 'Show', roc %>
+   <%= link_to 'Edit', edit_roc_path(roc) %>
+      <a href="/rocs/<%= roc.id %>/delete" onclick="if(confirm('Are you sure you want to delete this page?'))  return true;  else  return false;" >Destroy</a>
+<% end %>
+
+<p><%= link_to "New roc", new_roc_path %></p>

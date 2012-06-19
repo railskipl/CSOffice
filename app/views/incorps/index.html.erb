@@ -1,0 +1,87 @@
+<div align="center" id="middle">
+    <div class="newuser_box">
+	 <a id="various6" href="#inline6" title="" class="addlink">Share</a>
+	  <p><a id="various7" href="#inline7" title="" class="addlink">Company address </a></p>
+	  <p><a id="various9" href="#inline9" title="" class="addlink">Company director designation  </a></p>
+	  <p><a id="various11" href="#inline11" title="" class="addlink">Moa  </a></p>
+    </div>
+    
+	<div style="display:none">
+		
+		<div id="inline6" style="width:500px; height:auto; overflow:auto; text-align:left">
+<div>  
+	<% unless @shares.nil? %>
+		<%= render 'shares/show' %>
+	
+	<%else%>
+
+	<%= render 'shares/form' %>
+	</div>
+	<%end%>
+	<div style="display:none">
+		
+		<div id="inline7" style="width:500px; height:auto; overflow:auto; text-align:left">
+<div>
+	
+	
+	
+	<%= render 'company_addresses/index' %>
+	
+	</div>
+	
+</div>
+</div>
+<div style="display:none">
+		
+		<div id="inline9" style="width:500px; height:auto; overflow:auto; text-align:left">
+<div>
+	
+	
+	
+	<%= render 'company_director_designations/index' %>
+	
+	</div>
+	
+</div>
+</div>
+<div style="display:none">
+		
+		<div id="inline11" style="width:500px; height:auto; overflow:auto; text-align:left">
+<div>
+	
+	<p><a id="various12" href="#inline12" title="" class="addlink">Company main object </a></p>
+	  <p><a id="various13" href="#inline13" title="" class="addlink">Company Incidental Object  </a></p>
+	
+	 <p><a id="various14" href="#inline14" title="" class="addlink">Company Other Object  </a></p
+	
+	</div>
+	
+</div>
+</div>
+<div style="display:none">
+		
+		<div id="inline12" style="width:600px; height:auto; overflow:auto; text-align:left">
+<div>
+	
+	<%= render 'company_main_objects/form' %>
+
+	</div>
+	<div style="display:none">
+		
+		<div id="inline13" style="width:600px; height:auto; overflow:auto; text-align:left">
+<div>
+	
+	<%= render 'company_incidental_objects/form' %>
+
+	</div>
+	
+<div style="display:none">
+		
+		<div id="inline14" style="width:600px; height:auto; overflow:auto; text-align:left">
+<div>
+	
+	<%= render 'company_other_objects/form' %>
+
+	</div>
+	
+
