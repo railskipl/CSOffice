@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-<<<<<<< HEAD
+
 
 # before_filter :authenticate
 
@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 =======
     before_filter  :authenticate ,:only => [:edit,:update]
     before_filter :correct_user,:only => [:edit,:update,:destroy]
->>>>>>> aditya
+
   def show
     @user = User.find(params[:id])
     # if @user.id == current_user.id
