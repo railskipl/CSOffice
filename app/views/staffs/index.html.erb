@@ -23,13 +23,13 @@
 	
 	 <% if current_user.invitation.user_id == nil && (current_user.role? :csadmin) %>
 	<div class="staff_avatar_wrap">
-	  <div><%= link_to image_tag("/images/user.gif", :class => "staff_avatar", :alt => "#{current_user.name}" ), {:action=>"show", :controller=>"users", :id => current_user.id} %></div>
+	  <div><%= link_to image_tag("/images/user.gif", :class => "staff_avatar", :alt => "#{current_user.name}" ), {:action=>"add_clients", :controller=>"users", :id => current_user.id} %></div>
 	  <div class="staff_name"><img src="/images/sign.png" alt=""  border="0" /></div>
 	</div>
    	  <% @users.each do |user| %>
    	  <% if current_user.id == user.invitation.user_id && (user.role? :staff) %>
 	<div class="staff_avatar_wrap">
-	  <div><%= link_to image_tag("/images/user.gif", :class => "staff_avatar", :alt => "#{user.name}" ), {:action=>"show", :controller=>"users", :id => user.id} %></div>
+	  <div><%= link_to image_tag("/images/user.gif", :class => "staff_avatar", :alt => "#{user.name}" ), {:action=>"add_clients", :controller=>"users", :id => user.id} %></div>
 	  <div class="staff_name"><img src="/images/sign.png" alt=""  border="0" /></div>
 	</div>
 	<% end %>
@@ -38,7 +38,7 @@
 	<% @users.each do |user| %>
    	  <% if current_user.invitation.user_id == user.invitation.user_id && (user.role? :staff) %>
 	<div class="staff_avatar_wrap">
-	  <div><%= link_to image_tag("/images/user.gif", :class => "staff_avatar", :alt => "#{user.name}" ), {:action=>"show", :controller=>"users", :id => user.id} %></div>
+	  <div><%= link_to image_tag("/images/user.gif", :class => "staff_avatar", :alt => "#{user.name}" ), {:action=>"add_clients", :controller=>"users", :id => user.id} %></div>
 	  <div class="staff_name"><img src="/images/sign.png" alt=""  border="0" /></div>
 	</div>
 	<% end %>

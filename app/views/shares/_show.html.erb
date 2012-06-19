@@ -1,0 +1,77 @@
+  <h2>Share</h2>
+ <table>
+ 	<tr>
+ 		<th align="right"> Number of Equity share :</th> 
+ 		<td><%= @shares.num_of_equity_share %></td>
+ 	</tr>
+ 	
+ 	<tr>
+ 		<th align="right">To number of Equity share :</th>
+ 		<td><%= @shares.total_no_of_equity_share %></td>
+ 	</tr>
+ 	
+ 	<tr>
+ 		<th align="right">Nominal amount of equity share :</th>
+ 		<td><%= @shares.nominal_amt_of_equity_share %></td>
+ 	</tr>
+ 	
+ 	<tr>
+ 		<th align="right">Number of preference share :</th> 
+ 		<td><%= @shares.num_of_preference_share %></td>
+ 	</tr>
+ 
+ 	<tr>
+ 		<th align="right">Total amount of preference share :</th> 
+ 		<td><%= @shares.total_amt_of_preference_share %></td>
+ 	</tr>
+ 
+ 	<tr>
+ 		<th align="right">Nominal amount of preference share :</th> 
+ 		<td><%= @shares.nominal_amt_of_preference_share %> </td>
+ 	</tr>
+ 
+ 	<tr>
+ 		<th align="right">Authorised cap :</th> 
+ 		<td><%= @shares.authorised_cap %></td>
+ 	</tr>
+ 
+ 	<tr>
+ 		<th align="right">Number of subscribed equity share :</th> 
+ 		<td><%= @shares.num_of_subscribed_equity_share  %></td>
+ 	</tr>
+ 
+ 	<tr>
+ 		<th align="right">Total amount of subscribed equity share :</th> 
+ 		<td><%= @shares.total_amt_of_subscribed_equity_share  %></td>
+ 	</tr>
+ 
+ 	<tr>
+	 	<th align="right">Nominal amount of per subscribed equity share :</th> 
+ 		<td><%= @shares.nominal_amt_of_per_subscribed_equity_share  %></td>
+ 	</tr>
+ 
+ 	<tr>
+	 	<th align="right">Number of subscribed equity share :</th> 
+	 	<td><%= @shares.num_of_subscribed_preference_share%></td>
+ 	</tr>
+ 
+ 	<tr>
+ 		<th align="right">Total amount of subscribed preference share :</th> 
+ 		<td><%= @shares.total_amt_of_subscribed_preference_share %></td>
+ 	</tr>
+ 
+ 	<tr>
+ 		<th align="right">Subscribed cap :</th> 
+ 		<td><%= @shares.subscribed_cap %></td>
+ 	</tr>
+ 
+ 	<tr>
+	 	<th align="right">Nominal amount per subscribed preference share :</th> 
+	 	<td><%= @shares.nominal_amt_per_subscribed_preference_share%></td>
+ 	</tr>
+</table>
+<p>
+	
+   <a href="/shares/<%= @shares.id %>/edit" >Edit</a>
+    
+</p>

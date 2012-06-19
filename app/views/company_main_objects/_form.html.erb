@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script language="Javascript" type="text/javascript">
+
+function CompanyMainObject (CourseFeePair)
+{
+var CourseFee = CourseFeePair.split('|');
+
+document.getElementById('txtcoursefee').value = CourseFee[1]; //(display course fee when item is selected)
+
+}
+</script>
+</head>
+<body>
+	
+<%= form_for(@company_main_object) do  |f| %>
+	<select id="CourseFee" onchange="CompanyMainObject(this.value)">
+		<option value="|">---Select Title---</option>
+		
+		<% @moa_objects.each do |r|%>
+		<% @name_tld = r.title %>
+		<% @name_tld1 = r.description%>
+		
+ <option value=" |<%= "#{@name_tld1}" %> " >
+ 	 <%= @name_tld %>
+			
+
+ 	</option>
+		
+		<% end %>
+		</select>
+
+
+
+	<div>
+		<%= f.label :description %><br>
+		
+		<%= f.text_area :description ,:id=>"txtcoursefee"	%>
+
+	</div>
+		<% if @company_main_object.client_id == nil %>
+	<%= f.hidden_field :client_id, :value => "#{params[:client_id]}" %>
+	<% end %>
+	<div class="actions">
+		<%= f.submit "Save"  %>
+		
+	</div>
+	<% end %>

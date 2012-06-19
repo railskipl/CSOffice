@@ -1,0 +1,84 @@
+<%= form_for(@company_director_designation) do |f| %>
+<table> 
+	  <tr>
+	<th>Din Name
+<td>		<td><%= select  :company_director_designation, :din_id, @din_curr.map {|c| ["#{Contact.find_by_id(c.contact_id).first_name}", c.id]} rescue "" %> </td>
+
+
+	<tr>
+		<th align="justify" ><%= f.label "Is chairman" %></th> 
+      	<td>
+      		<%= f.radio_button :is_chairman ,true %>Yes
+    		<%= f.radio_button :is_chairman  ,false%>No
+    	</td>
+    </tr>
+    <tr>
+		<th align="justify" ><%= f.label "Is executive director" %></th> 
+      	<td>
+      		<%= f.radio_button :is_executive_director ,true %>Yes
+    		<%= f.radio_button :is_executive_director  ,false%>No
+    	</td>
+    </tr>
+    <tr>
+		<th align="justify" ><%= f.label "Is non  executive director" %></th> 
+      	<td>
+      		<%= f.radio_button :is_non_executive_director ,true %>Yes
+    		<%= f.radio_button :is_non_executive_director  ,false%>No
+    	</td>
+    </tr>
+    <tr>
+		<th align="justify" ><%= f.label "Is managing director" %></th> 
+      	<td>
+      		<%= f.radio_button :is_managing_director ,true %>Yes
+    		<%= f.radio_button :is_managing_director  ,false%>No
+    	</td>
+    </tr>
+    <tr>
+		<th align="justify" ><%= f.label "Is wholetime director" %></th> 
+      	<td>
+      		<%= f.radio_button :is_wholetime_director ,true %>Yes
+    		<%= f.radio_button :is_wholetime_director ,false%>No
+    	</td>
+    </tr>
+    <tr>
+		<th align="justify" ><%= f.label "Is joint managing director" %></th> 
+      	<td>
+      		<%= f.radio_button :is_joint_managing_director ,true %>Yes
+    		<%= f.radio_button :is_joint_managing_director ,false%>No
+    	</td>
+    </tr>
+    <tr>
+		<th align="justify" ><%= f.label "Is executive chairman" %></th> 
+      	<td>
+      		<%= f.radio_button :is_executive_chairman ,true %>Yes
+    		<%= f.radio_button :is_executive_chairman,false%>No
+    	</td>
+    </tr>
+    <tr>
+		<th align="justify" ><%= f.label "Is addtional director" %></th> 
+      	<td>
+      		<%= f.radio_button :is_addtional_director ,true %>Yes
+    		<%= f.radio_button :is_addtional_director,false%>No
+    	</td>
+    </tr>
+     <tr><th align="justify"> Date :<br> <%= f.date_select :date %><br>
+    	</tr>
+    	<tr><th align="justify"> Expiry :<br> <%= f.date_select :expiry %><br>
+    	</tr>
+    	<% if @company_director_designation.status == nil || @company_director_designation.client_id == nil  %>
+    	<%= f.hidden_field :status, :value =>1 %>
+    <%= f.hidden_field :client_id, :value => "#{params[:client_id]}" %>
+    <% end %>
+	<tr>
+		<td>
+		<div class="actions">
+		<%= f.submit "Save", :class=>"signup_button" %>
+		</div>
+		</td>
+		
+	</tr>
+<% end %>
+</table>
+
+
+

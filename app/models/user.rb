@@ -12,8 +12,11 @@ class User < ActiveRecord::Base
   
   has_and_belongs_to_many :roles
   
-  attr_accessible :login, :email, :name, :password, :password_confirmation, :invitation_token, :role_ids, :user_id
+  attr_accessible :login, :email, :name, :password, :password_confirmation, :invitation_token, :role_ids, :user_id,:client_ids
   
+  has_many :clients, :dependent => :destroy
+
+  attr_accessible :client_ids,:user_ids,:client_id,:user_id
   has_many :dins
   #remember me functionality.
   before_create { genrate_tokn(:password_reset_token) }

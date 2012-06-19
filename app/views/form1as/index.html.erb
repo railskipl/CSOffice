@@ -1,0 +1,17 @@
+<h1>Listing Forms</h1>
+
+<% @form1as.each do |form1a| %><br>
+	<%= form1a.din_id %>
+	<%= form1a.type_of_company %>
+	<%= form1a.pvt_pub %>
+	<%= form1a.catagories %>
+    <%= form1a.sub_cat %>
+   <%= form1a.proposed_company %>
+  <%= form1a.state_id %>
+  <%= form1a.roc_id %><br>
+  <%= link_to 'Show', form1a %>
+   <%= link_to 'Edit', edit_form1a_path(form1a) %>
+   <%= link_to 'Destroy', form1a, :confirm => 'Are you sure?', :method => :delete %>
+<% end %>
+
+

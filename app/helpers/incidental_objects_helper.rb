@@ -1,0 +1,2 @@
+module IncidentalObjectsHelper
+end

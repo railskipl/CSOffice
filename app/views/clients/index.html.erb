@@ -1,10 +1,11 @@
+<div align="center" id="middle">
+    <div class="newuser_box">
 <h1>Listing clients</h1>
 
 <table>
   <tr>
     <th>Client name</th>
     <th>Applicant name</th>
-    <th>User</th>
     <th></th>
     <th></th>
     <th></th>
@@ -14,10 +15,10 @@
   <tr>
     <td><%= client.client_name %></td>
     <td><%= client.applicant_name %></td>
-    <td><%= client.user_id %></td>
+     <td><%= client.user_id %></td>
     <td><%= link_to 'Show', client %></td>
     <td><%= link_to 'Edit', edit_client_path(client) %></td>
-    <td><%= link_to 'Destroy', client, :confirm => 'Are you sure?', :method => :delete %></td>
+     <td><a href="/clients/<%= client.id %>/delete" onclick="if(confirm('Are you sure you want to delete this page?'))  return true;  else  return false;" >Destroy</a>
   </tr>
 <% end %>
 </table>
@@ -25,3 +26,5 @@
 <br />
 
 <%= link_to 'New Client', new_client_path %>
+</div>
+</div>

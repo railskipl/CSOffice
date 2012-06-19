@@ -1,0 +1,51 @@
+class CompanyOtherObjectsController < ApplicationController
+
+  def index
+  @company_other_objects = CompanyOtherObject.find_all_by_client_id(params[:client_id])
+
+end
+
+
+def new
+  @company_other_object = CompanyOtherObject.new
+end
+ 
+def create
+    @company_other_object = CompanyOtherObject.new(params[:company_other_object])
+    if @company_other_object.save
+      flash[:notice] = "Successfully created product."
+      redirect_to @company_other_object
+    else
+      render :action => 'new'
+    end
+  end
+  
+  def show
+    @company_other_object = CompanyOtherObject.find(params[:id])
+  end
+  
+ def edit
+      @company_other_object = CompanyOtherObject.find(params[:id])
+      @moa_objects = MoaObject.find(:all)
+ end
+  
+  def update
+    @company_other_object = CompanyOtherObject.find(params[:id])
+    if @company_other_object.update_attributes(params[:company_other_object])
+      flash[:notice] = "Successfully updated product."
+      redirect_to @company_other_object
+    else
+      render :action => 'edit'
+    end
+  end  
+    def destroy
+    @company_other_object = CompanyOtherObject.find(params[:id])
+    @company_other_object.destroy
+    flash[:notice] = "Successfully destroyed product."
+    redirect_to company_other_objects_path
+  end
+  
+
+
+end
+

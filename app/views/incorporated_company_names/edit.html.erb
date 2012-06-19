@@ -1,0 +1,23 @@
+<div align="center" id="middle">
+    <div class="newuser_box">
+
+
+<%= form_for(@incorporated_company_name) do |f| %>
+
+	<div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :cin %><br />
+    <%= f.text_field :cin %>
+  </div>
+  <div class="field">
+    Date of incorporation<br />
+    <%= f.date_select :doi %>
+  </div><br />
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+</div></div>

@@ -1,0 +1,76 @@
+ <div align="center" id="middle">
+    <div class="newuser_box">
+<p>
+  <h2>Company Addresses</h2>
+   <table>
+   	<tr>
+  	<th align="right">Company Address line 1 : </th>
+    <td> <%= @company_address.line1 %></td>
+   </tr>
+   <tr>
+   	<th align="right">Company Address line 2 :</th>
+  <td><%= @company_address.line2 %></td>
+  </tr>
+  <tr>
+  	<th align="right">City :</th>
+  <td><%= @company_address.city %></td>
+  </tr>
+  <tr>
+  	<th align="right">Disrtrict :</th>
+  <td><%= @company_address.district %></td>
+  </tr>
+  <tr>
+  	<th align="right">State :</th>
+  <td><%= @company_address.state %></td>
+  </tr>
+  <tr>
+  	<th align="right">Pincode :</th>
+  <td><%= @company_address.pin_code %></td>
+  </tr>
+  <tr>
+  	<th align="right">Email Id :</th>
+  <td><%= @company_address.email_id  %></td>
+  </tr>
+  <tr>
+  	<th align="right">Name Proposed Roc : </th>
+  <td><%= @company_address.name_proposed_roc  %></td>
+  </tr>
+  <tr>
+  	<th align="right">Police Station Name :</th>
+  <td><%= @company_address.police_station_name  %></td>
+  </tr>
+  <tr>
+  	<th align="right">Police Station Line 1 :</th>
+  <td><%= @company_address.police_station_line1 %></td>
+  </tr>
+  <tr>
+  	<th align="right">Police Station Line 2 :</th>
+  <td><%= @company_address.police_station_line2 %></td>
+  </tr>
+  <tr>
+  	<th align="right">Police station city :</th>
+  <td><%= @company_address.police_station_city %></td>
+  </tr>
+  <tr>
+  	<th align="right">police station state :</th>
+  <td><%= @company_address.police_station_state %></td>
+  </tr>
+  <tr>
+  	<th align="right">Police Station Pincode :</th>
+  <td><%= @company_address.police_station_pin_code %></td>
+  </tr>
+  <tr>
+  	<th align="right">Date :</th>
+ <td><%= @company_address.date %></td></tr>
+ </tr>
+</p>
+</table>
+<p>
+	
+   <a href="/company_addresses/<%= @company_address.id %>/edit" >Edit</a>
+  
+  
+</p>
+
+    </div>
+</div>

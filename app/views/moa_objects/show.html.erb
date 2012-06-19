@@ -1,0 +1,12 @@
+<br>
+<p>
+  <strong>Objects</strong><br><br>
+  <%= @moa_object.title %><br><br>
+  <div align="justify"> <%= @moa_object.description %></div>
+</p>
+<br><br>
+<p>
+  <%= link_to "Edit", edit_moa_object_path(@moa_object) %> |
+  <%= link_to "Destroy", @moa_object, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", moa_objects_path %>
+</p>

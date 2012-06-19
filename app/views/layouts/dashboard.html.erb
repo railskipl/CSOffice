@@ -29,13 +29,99 @@ $(document).ready(function() {
 				'transitionOut'		: 'none'
 			});
 			
-						$("#various2").fancybox({
+			$("#various2").fancybox({
 				'titlePosition'		: 'inside',
 				'transitionIn'		: 'none',
 				'transitionOut'		: 'none'
 			});
-
-					});
+			
+			$("#various3").fancybox({
+				'titlePosition'		: 'inside',
+				'transitionIn'		: 'none',
+				'transitionOut'		: 'none'
+			});
+			
+			$("#various4").fancybox({
+				'titlePosition'		: 'inside',
+				'transitionIn'		: 'none',
+				'transitionOut'		: 'none'
+			});
+			$("#various5").fancybox({
+				'titlePosition'		: 'inside',
+				'transitionIn'		: 'none',
+				'transitionOut'		: 'none'
+			});
+			$("#various6").fancybox({
+				'titlePosition'		: 'inside',
+				'transitionIn'		: 'none',
+				'transitionOut'		: 'none'
+			});
+			$("#various7").fancybox({
+				'titlePosition'		: 'inside',
+				'transitionIn'		: 'none',
+				'transitionOut'		: 'none'
+			});
+			$("#various8").fancybox({
+				'titlePosition'		: 'inside',
+				'transitionIn'		: 'none',
+				'transitionOut'		: 'none'
+			});
+			$("#various9").fancybox({
+				'titlePosition'		: 'inside',
+				'transitionIn'		: 'none',
+				'transitionOut'		: 'none'
+			});
+			$("#various10").fancybox({
+				'titlePosition'		: 'inside',
+				'transitionIn'		: 'none',
+				'transitionOut'		: 'none'
+			});
+			$("#various11").fancybox({
+				'titlePosition'		: 'inside',
+				'transitionIn'		: 'none',
+				'transitionOut'		: 'none'
+			});
+			$("#various12").fancybox({
+				'titlePosition'		: 'inside',
+				'transitionIn'		: 'none',
+				'transitionOut'		: 'none'
+			});
+			$("#various13").fancybox({
+				'titlePosition'		: 'inside',
+				'transitionIn'		: 'none',
+				'transitionOut'		: 'none'
+			});
+				$("#various14").fancybox({
+				'titlePosition'		: 'inside',
+				'transitionIn'		: 'none',
+				'transitionOut'		: 'none'
+			});
+			$("#various15").fancybox({
+				'titlePosition'		: 'inside',
+				'transitionIn'		: 'none',
+				'transitionOut'		: 'none'
+			});
+			$("#various16").fancybox({
+				'titlePosition'		: 'inside',
+				'transitionIn'		: 'none',
+				'transitionOut'		: 'none'
+			});
+				$("#various17").fancybox({
+				'titlePosition'		: 'inside',
+				'transitionIn'		: 'none',
+				'transitionOut'		: 'none'
+			});
+				$("#various18").fancybox({
+				'titlePosition'		: 'inside',
+				'transitionIn'		: 'none',
+				'transitionOut'		: 'none'
+			});
+			
+				$("#various19").fancybox({
+				'titlePosition'		: 'inside',
+				'transitionIn'		: 'none',
+				'transitionOut'		: 'none'
+			});	});
 </script>
 </head>
 
@@ -51,27 +137,27 @@ $(document).ready(function() {
                 <li><%= link_to "Company", {:controller=>"dashboard", :action=>"index"} %></li>
                 <li><%= link_to "Contact", {:controller=>"contacts", :action=>"index"} %></li>
                 <% if current_user.invitation.user_id == nil && (current_user.role? :csadmin)  %>
-                <li><%= link_to "Requirements",  requirements_path %></li>
+       
                 <% end %>
                 <% if concurrent_din %>
                 <li><%= link_to "Din", {:controller=>"dins", :action=>"index"} %> </li>
+                
                 <% end %>
                 <li>|</li>
                 <% if current_user.invitation.user_id == nil && (current_user.role? :csadmin) %>
                 <li><%= link_to "My Staff", {:controller=>"staffs", :action=>"index", :id => current_user.id}  %> </li>
+                 <li><%= link_to "Objects", {:controller=>"moa_objects", :action=>"index", :id => current_user.id}  %> </li>
+               <li><%= link_to "Incidental object", {:controller=>"incidental_objects", :action=>"index", :id => current_user.id}  %> </li> 
                 <% elsif current_user.invitation.user_id != nil && (current_user.role? :staff) %>
                 <li><%= link_to "CS Staff", {:controller=>"staffs", :action=>"index", :id => current_user.id}  %> </li>
                 <% elsif current_user.invitation.user_id != nil && (current_user.role? :company) %>
                  <li><%= link_to "Company People", {:controller=>"staffs", :action=>"index", :id => current_user.id}  %> </li>
                 <% end %>
-                <li><%= link_to "Me",  user_path(current_user) %></li>
-
+                       <li><%= link_to "Me",  user_path(current_user) %></li>
              </ul>
              </div>
 
         </div>
-
-
 
           <div id="header_right"> 
          <div class="topmenu">

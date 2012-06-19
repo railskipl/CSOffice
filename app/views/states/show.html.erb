@@ -1,0 +1,10 @@
+<p>
+  <strong>State:</strong>
+  <%= @state.state_name %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_state_path(@state) %> |
+  <%= link_to "Destroy", @state, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", states_path %>
+</p>
