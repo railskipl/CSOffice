@@ -16,7 +16,7 @@ class ClientsController < ApplicationController
   def show
     @client = Client.find(params[:id])
     
-   if @client.user_id == current_user.id || Clientuser.find_by_client_id(@client.id).recipient == current_user.id
+   if (@client.user_id == current_user.id) || (Clientuser.find_by_client_id(@client.id).recipient == current_user.id)
 
     respond_to do |format|
       format.html # show.html.erb
@@ -30,14 +30,17 @@ class ClientsController < ApplicationController
   # GET /clients/new
   # GET /clients/new.xml
   def new
+    if current_user.role? :csadmin
     @client = Client.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @client }
     end
+  
+  else
+    redirect_to("/dashboard",:notice => 'You cannot access this page') 
   end
-
+end
   # GET /clients/1/edit
   def edit
     @client = Client.find(params[:id])
@@ -93,7 +96,5 @@ class ClientsController < ApplicationController
       format.xml  { head :ok }
     end
   end
-  
-
- 
+   
 end

@@ -1,3 +1,6 @@
+<div align="center" id="middle">
+    <div class="newuser_box">
+
 <% if @user.invitation.user_id == nil && (@user.role? :csadmin) %> 
 <h3>Company Secretary <%= @user.name %> </h3>
      <strong> Email </strong>: <%= @user.email %><br/>
@@ -33,3 +36,5 @@
 <% end %>
 <% end %>
 
+</div>
+</div>

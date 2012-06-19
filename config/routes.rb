@@ -21,6 +21,7 @@ match '/company_addresses/:id/delete', :to => "company_addresses#destroy"
 match '/company_director_designations/:id/delete', :to => "company_director_designations#destroy"
 match '/clients/:id/delete', :to => "clients#destroy"
 match '/users/:id/delete', :to => "users#destroy"
+match '/dins/:id/delete', :to => "dins#destroy"
 resources :clients do
   match  '/requirements',             :to => "requirements#index" 
   match '/requirements/din_details', :to => "din_details#index"
