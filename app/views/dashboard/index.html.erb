@@ -4,9 +4,10 @@
   <div id="middle">
   
     <div id="middle_left">
-	
+	<% if current_user.role? :csadmin%>
 	<div class="add"><%= link_to image_tag("/images/add.png", :alt => "Add Staff" ), new_client_path %>
 	<%= link_to "Add Client", clients_path, :class => "addlink" %></div>
+	<% end %>
 	</div>
 
 <div class="box"><h1><a href="#" class="heading_link">Kunal Infotech</a></h1>
