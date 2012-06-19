@@ -1,0 +1,82 @@
+<div align="center" id="middle">
+    <div class="newuser_box">
+<%= form_for(@share) do |f| %>
+<table> 
+		
+	<tr>
+		<th align="justify"><%= f.label "Number of equity share " %></th>
+		<td><%= f.text_field :num_of_equity_share,:size =>15 %></td>
+	</tr>
+     <tr>
+		<th align="justify"><%= f.label "total no of equity share" %></th>
+		<td><%= f.text_field :total_no_of_equity_share,:size =>15 %></td>
+	</tr>
+	<tr>
+		<th align="justify"><%= f.label "nominal amt of equity share" %></th>
+		<td><%= f.text_field :nominal_amt_of_equity_share,:size =>15 %></td>
+	</tr>
+	<tr>
+		<th align="justify"><%= f.label "Num of preference share" %></th>
+		<td><%= f.text_field :num_of_preference_share,:size =>15 %></td>
+	</tr>
+	<tr>
+		<th align="justify"><%= f.label " total amt of preference share" %></th>
+		<td><%= f.text_field :total_amt_of_preference_share,:size =>15 %></td>
+	</tr>
+	<tr>
+		<th align="justify"><%= f.label "Nominal amt of preference share" %></th>
+		<td><%= f.text_field :nominal_amt_of_preference_share,:size =>15 %></td>
+	</tr>
+	<tr>
+		<th align="justify"><%= f.label "Authorised cap" %></th>
+		<td><%= f.text_field :authorised_cap,:size =>15 %></td>
+	</tr>
+	<tr>
+		<th align="justify"><%= f.label "Number of subscribed equity share" %></th>
+		<td><%= f.text_field :num_of_subscribed_equity_share,:size =>15 %></td>
+	</tr>
+	<tr>
+		<th align="justify"><%= f.label "total amt of subscribed equity share" %></th>
+		<td><%= f.text_field :total_amt_of_subscribed_equity_share,:size =>15 %></td>
+	</tr>
+	<tr>
+		<th align="justify"><%= f.label "Nominal amt of per subscribed equity share " %></th>
+		<td><%= f.text_field :nominal_amt_of_per_subscribed_equity_share ,:size =>15 %></td>
+	</tr>
+	<tr>
+		<th align="justify"><%= f.label "Number of subscribed preference share " %></th>
+		<td><%= f.text_field :num_of_subscribed_preference_share ,:size =>15 %></td>
+	</tr>
+	<tr>
+		<th align="justify"><%= f.label "Total amt of subscribed preference share " %></th>
+		<td><%= f.text_field :total_amt_of_subscribed_preference_share ,:size =>15 %></td>
+	</tr>
+	<tr>
+		<th align="justify"><%= f.label " Subscribed cap " %></th>
+		<td><%= f.text_field :subscribed_cap ,:size =>15 %></td>
+	</tr>
+	<tr>
+		<th align="justify"><%= f.label "Nominal amt per subscribed preference share " %></th>
+		<td><%= f.text_field :nominal_amt_per_subscribed_preference_share ,:size =>15 %></td>
+	</tr>
+    
+	<tr>
+		<td>
+		<div class="actions">
+		<%= f.submit "Update", :class=>"signup_button" %>
+		</div>
+		</td>
+		
+	</tr>
+<% end %>
+</table>
+
+	 
+    </div>
+</div>
+
+
+
+
+
+

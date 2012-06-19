@@ -1,0 +1,20 @@
+
+	 <div align="center" id="middle">
+    <div class="newuser_box">
+	 <a id="various17" href="#inline17" title="" class="addlink">Company Incorporation</a>
+	 </div>
+		<div style="display:none">
+		
+		<div id="inline17" style="width:500px; height:auto; overflow:hidden; text-align:left">
+<div>  
+
+<% unless @incorporated_company_names.nil?  %>
+
+		<%= render 'incorporated_company_names/show' %>
+<%else%>
+
+	<%= render 'incorporated_company_names/form' %>
+	</div>
+	<%end%>
+
+	</div></div>

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+<%= CompanyName.find_by_status_and_client_id(true,params[:client_id]).name rescue "" %></p>
+
+<p>
+  <b>Cin:</b>
+  <%= @incorporated_company_names.cin %>
+</p>
+
+<p>
+  <b>Doi:</b>
+  <%= @incorporated_company_names.doi %>
+</p>
+<br>
+<p>
+	 <a href="/incorporated_company_names/<%= @incorporated_company_names.id %>/edit" class="signup_button" >Edit</a>
+</p>

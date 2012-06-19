@@ -1,0 +1,21 @@
+
+<p><%= link_to "New object", new_moa_object_path ,:class=>"title" %></p>
+
+<div align="center" id="middle">
+  <table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
+				<tr>
+					<th align="center" valign="middle" class="table-header-repeat line-left minwidth-1"><a href="">Title</a>	</th>
+					<th align="center" valign="middle" class="table-header-options line-left"><a href="">Action</a></th>
+				</tr>
+				
+<% @moa_objects.each do |moa_object| %>
+	<tr>
+	<td><%= link_to moa_object.title, moa_object %>
+<td>
+   <%= link_to '', moa_object,:class=>"icon-1 info-tooltip" %>
+   <%= link_to '', edit_moa_object_path(moa_object), :class=>"icon-2 info-tooltip" %>
+  <a href="/moa_objects/<%= moa_object.id %>/delete" onclick="if(confirm('Are you sure you want to delete this page?'))  return true;  else  return false;" class = "icon-3 info-tooltip" ></a>
+
+<% end %>
+</tr>
+

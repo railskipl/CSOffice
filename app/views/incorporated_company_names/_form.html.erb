@@ -1,0 +1,22 @@
+<%= form_for(@incorporated_company_name) do |f| %>
+
+
+	<div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name ,:value => CompanyName.find_by_status_and_client_id(true,params[:client_id]).name rescue ""%>
+  </div>
+  <div class="field">
+    <%= f.label :cin %><br />
+    <%= f.text_field :cin %>
+  </div>
+  <div class="field">
+   Date of Incorporation<br />
+    <%= f.date_select :doi %>
+  </div>
+  
+  <%= f.hidden_field :client_id, :value => "#{params[:client_id]}" %><br />
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+

@@ -1,20 +1,21 @@
-<p id="notice"><%= notice %></p>
+<div align="center" id="middle">
+    <div class="newuser_box4">
+<center>
+<table cellpadding="7">
+		<tr>
+		<th align="right">Client name:</th>
+  		<td><%= @client.client_name %></td>
+  		<td rowspan="2"><%= link_to 'Edit', edit_client_path(@client),  :class=>"signup_button" %> |
+			<%= link_to 'Back', clients_path ,  :class=>"signup_button"%>
+    <tr>
+  		<th>Applicant name:</th>
+  		<td><%= @client.applicant_name %></td>
 
-<p>
-  <b>Client name:</b>
-  <%= @client.client_name %>
-</p>
+</table>
 
-<p>
-  <b>Applicant name:</b>
-  <%= @client.applicant_name %>
-</p>
-
-<p>
-  <b>User:</b>
-  <%= @client.user_id %>
-</p>
+<h2><%= link_to 'Requirements', client_requirements_path(:client_id => @client.id) , :class=>"signup_button" %>
+<%= link_to 'One click Company Incorporation', client_comp_incorps_path(:client_id => @client.id), :class=>"signup_button" %></h2>
 
 
-<%= link_to 'Edit', edit_client_path(@client) %> |
-<%= link_to 'Back', clients_path %>
+</center>
+</div></div>

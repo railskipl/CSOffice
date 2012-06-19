@@ -15,15 +15,39 @@
 <div class="icon"><a href="#"><img src="/images/icon.jpg" alt="" border="0" /></a></div>
 
 </div>
-
+<% if current_user.role? :csadmin %>
 <% @clients.each do |client|%>
-<div class="box"><h1><%= link_to "#{client.client_name}", {:action=>"show", :controller=>"clients", :id => client.id },  :class=>"heading_link"%></a></h1>
+<div class="box">
+	<h1>
+<a href="clients/<%= client.id %>" >	
+	<% if !client.incorporated_company_name.nil? %>
+			<%= IncorporatedCompanyName.find_by_client_id(client.id).name rescue""%> : Incorporated </a>
+    <% else %>
+		
+		<%= link_to "#{client.client_name}", {:action=>"show", :controller=>"clients", :id => client.id },  :class=>"heading_link"%></a>
+	<% end %>			
+	</h1>
 <h4>The application is been submitted by <%= client.applicant_name %></h4>
 <div> The Client has been added by <%= User.find_by_id(client.user_id).name %></div>
 <div class="icon"><a href="#" class="heading_link"><img src="/images/icon.jpg" alt="" border="0" /></a></div>
 </div>
 <% end %>
+<% else %>
+<% @staff.each do |c|%>
 
+<div class="box"><h1>
+	   <%= link_to "#{Client.find_by_id(c.client_id).client_name}" ,{:action=>"show", :controller=>"clients", :id => c.client_id },  :class=>"heading_link" %>
+	   
+	   <h4>The application is been submitted by
+	   	   <%= "#{Client.find_by_id(c.client_id).applicant_name}" %> 
+	   </h4>
+	 
+<div> The Client has been added by <%= "#{User.find_by_id(c.recipient).name}" %></div>
+<div class="icon"><a href="#" class="heading_link"><img src="/images/icon.jpg" alt="" border="0" /></a></div>
+</div>
+
+<% end %>
+<% end %>
 <div id="tnt_pagination">
 <span class="disabled_tnt_pagination">Prev</span><a href="#1">1</a><a href="#2">2</a><a href="#3">3</a><a href="#forwaed">Next</a></div>
 	

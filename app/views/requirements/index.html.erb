@@ -1,8 +1,11 @@
 <div align="center" id="middle">
+
     <div class="newuser_box">
-	 <%= link_to "Din", din_details_path, :class=> "addlink" %></a>
-	  <p><a href="#" class="addlink">Form 1A</a></p>
-	  <p><a href="#" class="addlink">Incorp Details</a></p>
-	 
+
+	 <%= link_to "Din",  {:controller=>"din_details", :action=>"index"}, :class=> "addlink" %></a>
+	  <p><%= link_to "Form1a details",  {:controller=>"form1a_details", :action=>"index"}, :class=> "addlink" %></p>
+	  <p><%= link_to "incorps",  {:controller=>"incorps", :action=>"index"}, :class=> "addlink" %></p>
+
     </div>
 </div>
+

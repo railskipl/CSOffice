@@ -1,0 +1,29 @@
+<div align="center" id="middle">
+    <div class="newuser_box">
+
+<%= form_for(@proposed_name) do |f| %>
+<table> 
+	<tr>
+		<th align="justify"><%= f.label "Proposed name :" %></th>
+		<td><%= f.text_field :pro_name %></td>
+	</tr>
+
+	<tr>
+		<th align="justify"><%= f.label "Significance of name :" %></th>
+		<td><%= f.text_field :significance_of_name %></td>
+	</tr>
+
+   
+	<tr>
+		<td>
+		<div class="actions">
+		<%= f.submit "Update",:class=>"signup_button"  %>
+		</div>
+		</td>
+		
+	</tr>
+<% end %>
+</table>
+    </div>
+</div>
+

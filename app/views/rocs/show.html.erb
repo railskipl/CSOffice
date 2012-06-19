@@ -1,0 +1,10 @@
+<p>
+  <strong>Roc:</strong>
+  <%= @roc.roc_name %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_roc_path(@roc) %> |
+  <%= link_to "Destroy", @roc, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", rocs_path %>
+</p>

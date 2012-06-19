@@ -1,0 +1,17 @@
+<%= form_for(@roc) do |f| %>
+
+<div class="field">
+	<%= f.label :roc_name%>
+	<%= f.text_field :roc_name %>
+</div>
+
+ <div>
+    <%= f.label :state_id %><br />
+    <%= f.collection_select :state_id, State.all(:order => "id"), :id, :state_name, :selected => 15 %>
+  </div>
+
+<div class="actions">
+	<%= f.submit "Save"  %>
+	
+</div>
+<% end %>

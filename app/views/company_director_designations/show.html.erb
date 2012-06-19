@@ -1,0 +1,60 @@
+<div align="center" id="middle">
+    <div class="newuser_box">
+  <h2>Company Director Designation</h2>
+  <table>
+  	<tr>
+  	<th align="right">Din name	:</th>
+    <td><%= @company_director_designation.din_id %></td>
+  </tr>
+  	<tr>
+  	<th align="right">Is Chairman	:</th>
+    <td><%= @company_director_designation.is_chairman %></td>
+  </tr>
+  <tr>
+  	<th align="right">Is Executive director :</th>
+    <td><%= @company_director_designation.is_executive_director %></td>
+  </tr>
+  <tr>
+  	<th align="right">Is non Executive Director :</th>
+  <td><%= @company_director_designation.is_non_executive_director %></td>
+  </tr>
+  <tr>
+  	<th align="right">Is Managing director :</th>
+    <td><%= @company_director_designation.is_managing_director %></td>
+  </tr>
+  <tr>
+  	<th align="right">Is Wholetime Director :</th>
+  <td><%= @company_director_designation.is_wholetime_director %></td>
+  </tr>
+  <tr>
+  	<th align="right">Is Joint managing director :</th>
+  <td><%= @company_director_designation.is_joint_managing_director %></td>
+  </tr>
+  <tr>
+  <th align="right">Is Executive Chairman :</th>
+  <td><%= @company_director_designation.is_executive_chairman %></td>
+  </tr>
+  <tr>
+  	<th align="right">Is Addtional Director :</th>
+  <td><%=@company_director_designation.is_addtional_director  %></td>
+  </tr>
+  <tr>
+  	<th align="right">Date : </th>
+    <td><%= @company_director_designation.date %></td>
+  </tr>
+  <tr>
+  	<th align="right">Expiry : </th>
+  <td><%= @company_director_designation.expiry   %></td>
+  </tr>
+  
+</p>
+</table>
+<p>
+	
+   <a href="/company_director_designations/<%= @company_director_designation.id %>/edit" >Edit</a>
+  
+  
+</p>
+
+    </div>
+</div>

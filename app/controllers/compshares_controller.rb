@@ -6,13 +6,25 @@ class CompsharesController < ApplicationController
   def edit
     @compshare = Compshare.find(params[:id])
   end
+  def update
+    @compshare =Compshare.find(params[:id])
+    respond_to do |format|
+      if @compshare.update_attributes(params[:compshare])
+        format.html { redirect_to("/clients/#{@compshare.client_id}/requirements/din_details") }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @compshare.errors, :status => :unprocessable_entity }
+      end
+       end
+  end
   def create
     @compshare = Compshare.new(params[:compshare])
+   
       if @compshare.save
-        redirect_to requirements_path
-        flash[:notice] = "Thank you, the Company Shareholder was successfully created."
+        redirect_to("/clients/#{@compshare.client_id}/requirements/form1a_details")
       else
-        render action "new"
+        redirect_to "/clients/#{@compshare.client_id}/requirements/din_details"
       end
   end
 end

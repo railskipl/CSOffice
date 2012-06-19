@@ -3,7 +3,7 @@
 body{ margin:0; padding:0; font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#4d4d4d; background: url(../images/b_bg.jpg) #f0f0f0}
 
 #maindiv{ width:100%; height:auto; overflow:hidden}
-#wraper{ width:1000px; height:auto; overflow:hidden; text-align:left}
+#wraper{ width:1030px; height:auto; overflow:hidden; text-align:left}
 
 #header{ width:100%; height:auto; margin:10px 0 0 0; overflow:hidden}
 #header_left{ width:50%; height:auto; float:left}
@@ -12,7 +12,7 @@ body{ margin:0; padding:0; font-family:Arial, Helvetica, sans-serif; font-size:1
 
 .topmenu{
 font-weight: normal;
-width: 50%; float:right; margin:10px 0 10px 0
+width: 50%; float:right; margin:10px 0 10px 0
 }
 
 .topmenu ul{
@@ -43,7 +43,7 @@ border-radius: 3px 3px 3px 3px; box-shadow: 0 0 3px rgba(0, 0, 0, 0.2); margin:0
 
 .mainmenu{
 font-weight: normal;
-width: 75%; float:right;
+width: 78%; float:right;
 padding-top:55px
 }
 
@@ -204,6 +204,39 @@ color: #09507d;
     padding: 10px;
     text-align: left;
     width: 450px;}
+ 
+ .newuser_box1 {
+    background: #FFFFFF;
+    border: 5px solid #BDBCBD;
+    border-radius: 10px;
+    box-shadow: 0px 0px 3px #b1b1b1;
+    height: 400px;
+    overflow: auto;
+    padding: 10px;
+    text-align: left;
+    width: 910px;}
+    
+     
+ .newuser_box2 {
+    background: #FFFFFF;
+    border: 5px solid #BDBCBD;
+    border-radius: 10px;
+    box-shadow: 0px 0px 3px #b1b1b1;
+    height: auto;
+    padding: 10px;
+    text-align: left;
+    width: 200px;}
+	
+	 .newuser_box4 {
+    background: #FFFFFF;
+    border: 5px solid #BDBCBD;
+    border-radius: 10px;
+    box-shadow: 0px 0px 3px #b1b1b1;
+    height: auto;
+    padding: 10px;
+    text-align: left;
+    width: 500px;}
+	
 	
 	.heading1{ font-size:20px; color:#105581; font-weight:bold}
 	.heading2{ font-size:16px; color:#333333; font-weight:bold}

@@ -2,7 +2,7 @@ class DinsController < BaseController
   # GET /dins
   # GET /dins.xml
   def index
-    @dins = Din.all
+    @dins = Din.find_all_by_user_id(current_user.id)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,10 +14,13 @@ class DinsController < BaseController
   # GET /dins/1.xml
   def show
     @din = Din.find(params[:id])
-
+    if @din.user_id == current_user.id
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @din }
+    end
+    else
+      redirect_to "/"
     end
   end
 
@@ -35,6 +38,15 @@ class DinsController < BaseController
   # GET /dins/1/edit
   def edit
     @din = Din.find(params[:id])
+    @con = Contact.find_all_by_user_id(current_user.id)
+     if @din.user_id == current_user.id
+       respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @din }
+      end
+      else
+      redirect_to "/"
+     end
   end
 
   # POST /dins

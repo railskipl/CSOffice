@@ -1,10 +1,35 @@
 <% if @user.invitation.user_id == nil && (@user.role? :csadmin) %> 
 <h3>Company Secretary <%= @user.name %> </h3>
+     <strong> Email </strong>: <%= @user.email %><br/>
 <% elsif @user.invitation.user_id != nil && (@user.role? :staff) %> 
 <h3> Staff <%= @user.name %> belongs to CS <%= link_to User.find_by_id(@user.invitation.user_id).name,
            {:controller => "users", :action => "show", :id => User.find_by_id(@user.invitation.user_id)} %></h3>
+     <strong> Email </strong>: <%= @user.email %><br/>
+ <% if current_user.role? :csadmin %>
+ <div id="middle">
+ <div class="newuser_box"><div class="heading1">
+   Which Clients can these people access?
+   <br/>
+   
+   <% form_for :user do |f| %>
+   
+   <% @up_client.each do |c|%>
+   <%= "#{c.client_name}" %>
+  <%= check_box_tag "user[client_ids][]" %>
+  
+  <% end %>
+     
+    
+ </div>
+ <%= f.submit "Save", :class=>"signup_button" %>
+ </div>
+ </div>  
+ <% end %> 
+ 
 <% elsif @user.invitation.user_id != nil && (@user.role? :company) %> 
 <h3> Company <%= @user.name %> belongs to CS <%= link_to User.find_by_id(@user.invitation.user_id).name,
            {:controller => "users", :action => "show", :id => User.find_by_id(@user.invitation.user_id)} %></h3>
+     <strong> Email </strong>: <%= @user.email %><br/>
 <% end %>
-<strong> Email </strong>   : <%= @user.email %><br/>
+<% end %>
+

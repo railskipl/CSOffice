@@ -1,0 +1,10 @@
+<h1>Listing emails </h1>
+
+<% @states.each do |state| %>
+	<%= state.state_name%>
+   <%= link_to 'Show', state %>
+   <%= link_to 'Edit', edit_state_path(state) %>
+   <%= link_to 'Destroy', state, :confirm => 'Are you sure?', :method => :delete %>
+<% end %>
+
+<p><%= link_to "New State", new_state_path %></p>

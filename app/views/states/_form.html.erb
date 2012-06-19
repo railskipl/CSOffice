@@ -1,0 +1,12 @@
+<%= form_for(@state) do |f| %>
+
+<div class="field">
+	<%= f.label :state_name%>
+	<%= f.text_field :state_name %>
+</div>
+
+<div class="actions">
+	<%= f.submit "Save"  %>
+	
+</div>
+<% end %>

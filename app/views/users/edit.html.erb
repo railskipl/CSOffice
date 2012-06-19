@@ -20,5 +20,9 @@
 <div class="actions">
 <%= f.submit "Update" %>
 </div>
+<div class="actions">
+     <td><a href="/users/<%= @user.id %>/delete" onclick="if(confirm('Are you sure you want to delete this page?'))  return true;  else  return false;" >Destroy</a>
+
+</div>
 <% end %>
 <div>

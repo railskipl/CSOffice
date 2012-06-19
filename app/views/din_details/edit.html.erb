@@ -1,0 +1,73 @@
+function disableElement()
+{
+
+document.getElementById("compdir_cessation_date_1i").disabled=true;
+
+document.getElementById("compdir_cessation_date_2i").disabled=true;
+
+document.getElementById("compdir_cessation_date_3i").disabled=true;
+}
+
+function enableElement(){
+	document.getElementById("compdir_cessation_date_1i").disabled=false;
+
+document.getElementById("compdir_cessation_date_2i").disabled=false;
+
+document.getElementById("compdir_cessation_date_3i").disabled=false;
+}
+
+</script>
+<%= form_for(@compdir) do |f| %>
+  <% if @compdir.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@compdir.errors.count, "error") %> prohibited this client from being saved:</h2>
+
+      <ul>
+      <% @compdir.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<table width="100%" border="1" cellspacing="5" cellpadding="5">
+  <tr>
+    <td align="left" valign="middle"><strong>Select Din</strong></td>
+    <td align="center" valign="middle">:</td>
+  
+    <td><%= select  :compdir, :din_id, @din_curr.map {|c| ["#{Contact.find_by_id(c.contact_id).first_name}", c.id]} %></td>
+	 
+  </tr>
+   <tr>
+   	 <td>
+    	<%= f.radio_button :status ,0,:onclick=>'disableElement()' %>Proposed director<br>
+    	<%= f.radio_button :status ,1,:onclick=>"disableElement()" %>Current director<br>
+    	<%= f.radio_button :status ,2,:onclick=>"enableElement()",:checked => true %>Old Director
+    
+    <td>&nbsp;</td>
+  <tr>	<td>Appointment Date :<br> <%= f.date_select :date %><br>
+  		Cessation Date :<br> <%= f.date_select   :cessation_date %>  </td>
+   <td><%= f.hidden_field :client_id, :value => "#{params[:client_id]}" %></td>
+ 
+    <td> <%= f.submit "Save", :class=>"signup_button", :locals => {:clientid => "#{params[:client_id]}" } %></td>
+  </tr>
+ 
+</table>
+<% end %>
+ 
+<div class="heading1">List of added directors</div>
+<div>
+<div>
+
+<strong>
+      	<% @contacts.each do |c|%>
+      	<%= "Directors:  #{c.din_id} Status: #{c.status} Appointment Date: #{c.date}" %><br/>
+      	<% end %>
+      	</strong>
+
+     
+</div>
+</div>
+</div>
+		</div>
+		
+</div>
