@@ -1,40 +1,42 @@
 class ContactsController < BaseController
   # GET /contacts
   # GET /contacts.xml
- 
+ before_filter :csauth , :only => [:new,:edit]
   def index
-    @contacts = Contact.find_all_by_user_id(current_user.id).paginate(:page => params[:page], :per_page => 2)
+    if current_user.role? :csadmin
+    @contacts = Contact.find_all_by_user_id(current_user.id).paginate(:page => params[:page], :per_page => 2) 
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @contacts }
     end
+    else
+       @contacts = Contact.find_all_by_user_id(current_user.invitation.user_id).paginate(:page => params[:page], :per_page => 2)
   end
-
+end
   # GET /contacts/1
   # GET /contacts/1.xml
   def show
     @contact = Contact.find(params[:id])
-     if @contact.user_id == current_user.id
+     if @contact.user_id == current_user.id || current_user.invitation.user_id
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @contact }
     end
     else
-      redirect_to "/"
+      redirect_to "/dashboard"
     end
   end
 
   # GET /contacts/new
   # GET /contacts/new.xml
   def new
-    @contact = Contact.new
-
+       @contact = Contact.new
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @contact }
     end
   end
-
+ 
   # GET /contacts/1/edit
   def edit
     @contact = Contact.find(params[:id])
@@ -44,7 +46,7 @@ class ContactsController < BaseController
       format.xml  { render :xml => @contact }
     end
     else
-      redirect_to "/"
+      redirect_to "/dashboard"
     end
          
   end
@@ -92,5 +94,15 @@ class ContactsController < BaseController
       format.xml  { head :ok }
     end
   end
+
+private
+
+  def csauth
+    #this method is to restrict staff from accessing contacts
+    unless current_user.role? :csadmin
+      redirect_to("/dashboard",:notice => 'You cannot access this page')
+    end
+  end
+     
 
 end

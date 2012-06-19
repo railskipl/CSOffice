@@ -33,18 +33,11 @@ class UsersController < ApplicationController
     @users = User.all
     @up_client= Client.find_all_by_user_id(current_user.id)
 
-    
-    
-    
     if request.post?
       
       @client_user = Clientuser.find_all_by_recipient(params[:id])
       
-      @client_user.each do |c|
-        
-          Clientuser.delete(c.id)
-          
-      end
+    
         
       
       recipients_array = params[:user][:client_ids].collect{ |s| }
