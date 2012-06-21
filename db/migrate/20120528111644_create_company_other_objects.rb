@@ -1,7 +1,7 @@
 class CreateCompanyOtherObjects < ActiveRecord::Migration
   def self.up
     create_table :company_other_objects do |t|
-      t.string :description
+      t.text :description
       t.integer :client_id 
       t.timestamps
     end
