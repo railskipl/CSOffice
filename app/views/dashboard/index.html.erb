@@ -22,7 +22,7 @@
 	<h1>
 <a href="clients/<%= client.id %>" >	
 	<% if !client.incorporated_company_name.nil? %>
-			<%= IncorporatedCompanyName.find_by_client_id(client.id).name rescue""%> : Incorporated </a>
+			<%= CompanyName.find_by_client_id_and_status(client.id,true).name  rescue""%> : Incorporated </a>
     <% else %>
 		
 		<%= link_to "#{client.client_name}", {:action=>"show", :controller=>"clients", :id => client.id },  :class=>"heading_link"%></a>

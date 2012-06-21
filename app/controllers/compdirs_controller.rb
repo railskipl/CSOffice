@@ -5,6 +5,7 @@ class CompdirsController < ApplicationController
   end
   def edit
     @compdir = Compdir.find(params[:id])
+    @contacts =  Compdir.find_all_by_client_id(params[:client_id]) 
   end
   def update
     @compdir = Compdir.find(params[:id])

@@ -8,13 +8,14 @@ gem 'rails', '3.0.9'
 gem 'sqlite3'
 
 gem 'paperclip'
-
 gem 'cocaine'
 gem 'aws-s3'
 gem 'aws-sdk'
 gem "will_paginate", "~> 3.0.pre2"
 gem "cancan"
 gem 'best_in_place'
+gem "prawn"
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
