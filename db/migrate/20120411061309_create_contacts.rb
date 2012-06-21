@@ -7,10 +7,10 @@ class CreateContacts < ActiveRecord::Migration
       t.string :father_first_name
       t.string :father_middle_name
       t.string :father_last_name
-      t.boolean :is_indian
+      t.string :is_indian
       t.string :nationality
       t.date :dob
-      t.boolean :gender
+      t.string :gender
       t.string :birth_place
       t.string :pan_no
       t.string :voter_id

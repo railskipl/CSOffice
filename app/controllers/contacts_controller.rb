@@ -4,7 +4,7 @@ class ContactsController < BaseController
  before_filter :csauth , :only => [:new,:edit]
   def index
     if current_user.role? :csadmin
-    @contacts = Contact.find_all_by_user_id(current_user.id).paginate(:page => params[:page], :per_page => 2) 
+    @contacts = Contact.find_all_by_user_id(current_user.id).paginate(:page => params[:page], :per_page => 10) 
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @contacts }

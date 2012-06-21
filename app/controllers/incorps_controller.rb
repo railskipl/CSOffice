@@ -2,6 +2,7 @@ class IncorpsController < ApplicationController
    def index
     redirect_to("/dashboard",:notice => 'You cannot access this page') unless ( Client.find(params[:client_id]).user_id == current_user.id ) || (Clientuser.find_by_client_id(params[:client_id]).recipient == current_user.id )
      @shares = Share.find_by_client_id(params[:client_id])
+     @clients = Client.find_all_by_id(params[:client_id])
      @share =  Share.new
      @company_address = CompanyAddress.new
      @company_addresses = CompanyAddress.find_all_by_client_id(params[:client_id])
@@ -28,6 +29,12 @@ class IncorpsController < ApplicationController
      @share  = Share.find_all_by_client_id(params[:client_id])
    end
   
-
-  
+def aoa
+    @contacts =  Compdir.find_all_by_client_id(params[:client_id])
+end
+   def moa
+   @company_main_objects = CompanyMainObject.find_all_by_client_id(params[:client_id])
+   @company_incidental_objects = CompanyIncidentalObject.find_all_by_client_id(params[:client_id])
+   @company_other_objects = CompanyOtherObject.find_all_by_client_id(params[:client_id])
+   end 
 end
