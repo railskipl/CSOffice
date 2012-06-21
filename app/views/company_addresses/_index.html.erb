@@ -6,6 +6,7 @@
 	<tr><th>Company Address Line 1
 		<th>Company Address Line 2
 		<th>Status
+		<th>Date
 		<th colspan="3">Action
 		<% @company_addresses.each do |company_address| %>
 		
@@ -13,6 +14,7 @@
 		<td><%= company_address.line1 %>
     	<td><%= company_address.line2 %>
 		<td><%= link_to format_boolean(company_address.status?), {:controller => 'company_addresses', :action => 'toggled_status', :id => company_address.id} %>
+		<td><%= company_address.date%>
 		<td><%= link_to 'Show', company_address %>
    		<td><%= link_to 'Edit', edit_company_address_path(company_address) %>
    		<td><a href="/company_addresses/<%= company_address.id %>/delete" onclick="if(confirm('Are you sure you want to delete this page?'))  return true;  else  return false;" class = "icon-3 info-tooltip" ></a>

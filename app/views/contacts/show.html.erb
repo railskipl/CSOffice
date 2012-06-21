@@ -216,14 +216,16 @@
     <td align="right" valign="middle">Fax No</td>
 	<td align="left" valign="middle">:</td>
     <td align="left" valign="middle"><strong><%= @contact.present_fax_no %></strong></td>
+    
   </tr>
   
   
+ 
   
   
   
-  
-</table>
+</table><br/><br/>
+ <%= link_to 'Edit', edit_contact_path(@contact),  :class=>"signup_button" %>
 		</div>
 	</div>
 	</div>

@@ -19,7 +19,10 @@ document.getElementById("compdir_cessation_date_2i").disabled=false;
 
 document.getElementById("compdir_cessation_date_3i").disabled=false;
 }
-
+function goBack()
+  {
+  window.history.back()
+  }
 </script>
 <%= form_for(@compdir) do |f| %>
   <% if @compdir.errors.any? %>
@@ -34,7 +37,11 @@ document.getElementById("compdir_cessation_date_3i").disabled=false;
     </div>
   <% end %>
 <table width="100%" border="0" cellspacing="5" cellpadding="5">
-  
+  <tr>
+  	<th>	<% @contacts.each do |c|%>
+      	<%= "Directors:  #{c.din_id}" %> 
+      	<% end %>
+  <tr>
    <td>
     	Status : <br>
     <%= f.radio_button :status ,0,:onclick=>'disableElement()' %>Proposed director<br>
@@ -50,9 +57,10 @@ document.getElementById("compdir_cessation_date_3i").disabled=false;
    
     
     <td>&nbsp;</td>
-    <td> <%= f.submit "Update", :class=>"signup_button", :locals => {:clientid => "#{params[:client_id]}" } %></td>
-  </tr>
-  
+    <td> <%= f.submit "Update",  :locals => {:clientid => "#{params[:client_id]}" } %></td>
+ 
+ 
+  	<td><input type="button" onclick="goBack()" value="Cancel" /> </tr>	
 </table>
 <% end %>
 
