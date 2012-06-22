@@ -18,7 +18,10 @@ document.getElementById("compshare_cessation_date_2i").disabled=false;
 
 document.getElementById("compshare_cessation_date_3i").disabled=false;
 }
-
+function goBack()
+  {
+  window.history.back()
+  }
 </script>
 <%= form_for(@compshare) do |f| %>
   <% if @compshare.errors.any? %>
@@ -60,7 +63,9 @@ document.getElementById("compshare_cessation_date_3i").disabled=false;
   <tr>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
-    <td><%= f.submit "Update", :class=>"signup_button" %></td>
+    <td><%= f.submit "Update"%></td>
+    
+  	<td><input type="button" onclick="goBack()" value="Cancel" /> </tr>	
   </tr>
 </table>
 <% end %>
