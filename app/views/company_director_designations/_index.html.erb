@@ -5,12 +5,14 @@
 	<tr>
 		<th>Is Chairman</th>
 		<th>Status
+		<th>Date
 		<th colspan="3">Action
 		
 <%  @company_director_designations.each do |company_director_designation| %><br>
 	<tr>
 		<td><%= company_director_designation.is_chairman  %>
    		<td><%= link_to format_boolean(company_director_designation.status?), {:controller => 'company_director_designations', :action => 'toggled_status', :id => company_director_designation.id} %>
+   		<td><%= company_director_designation.date %>
 		<td><%= link_to 'Show', company_director_designation %>
 		<td><%= link_to 'Edit', edit_company_director_designation_path(company_director_designation) %>
 		<td><a href="/company_director_designations/<%= company_director_designation.id %>/delete" onclick="if(confirm('Are you sure you want to delete this page?'))  return true;  else  return false;" class = "icon-3 info-tooltip" ></a>

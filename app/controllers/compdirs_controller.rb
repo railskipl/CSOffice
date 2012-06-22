@@ -5,6 +5,7 @@ class CompdirsController < ApplicationController
   end
   def edit
     @compdir = Compdir.find(params[:id])
+    @comp_dir =  Compdir.find_by_id(params[:id]).din_id
   end
   def update
     @compdir = Compdir.find(params[:id])

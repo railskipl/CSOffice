@@ -11,6 +11,11 @@ end
 def create
     @company_address =  CompanyAddress.new(params[:company_address])
     if @company_address.save
+         CompanyAddress.find_all_by_client_id(@company_address.client_id).each do |f|
+          if f.id != @company_address.id
+           f.update_attribute(:status , 0) 
+          end
+         end
       redirect_to("/clients/#{@company_address.client_id}/requirements/incorps")
     else
       render :action => 'new'

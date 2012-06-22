@@ -1,5 +1,6 @@
 Csapp::Application.routes.draw do |map|
-  
+    
+
   resources :clients
 resources :shares
 match '/users/:id/staffs', :to => "staffs#index"
@@ -27,10 +28,37 @@ resources :clients do
   match '/requirements/din_details', :to => "din_details#index"
   match '/requirements/form1a_details', :to => "form1a_details#index"
   match '/requirements/form1a_details/company_names/:id/edit', :to => "company_names#edit"
+  match '/requirements/din_details/compdirs/:id/edit', :to => "compdirs#edit"
+  match '/requirements/din_details/compshares/:id/edit', :to => "compshares#edit"
+  match '/requirements/form1a_details/form1as/:id/edit', :to => "form1as#edit"
   match '/requirements/incorps', :to => "incorps#index"
+  
+  #PDF for AOA
+  match '/requirements/incorps/aoa', :to => 'incorps#aoa'
+ 
   match  '/comp_incorps',             :to => "comp_incorps#index" 
   match  '/comp_incorps/incorporated_company_names',             :to => "incorporated_company_names#index" 
+ 
+ #PDF for MOA
+  match '/requirements/incorps/moa', :to => 'incorps#moa'
   
+# Routes for Company Main Objects
+  match '/requirements/incorps/company_main_objects', :to => "company_main_objects#index"
+  match '/requirements/incorps/company_main_objects/:id', :to => "company_main_objects#show"
+  match '/requirements/incorps/company_main_objects/:id/edit', :to => "company_main_objects#edit"
+  match '/requirements/incorps/company_main_objects/:id/delete', :to => "company_main_objects#destroy"
+  
+  # Routes for Company Other Objects
+  match '/requirements/incorps/company_other_objects', :to => "company_other_objects#index"
+  match '/requirements/incorps/company_other_objects/:id', :to => "company_other_objects#show"
+  match '/requirements/incorps/company_other_objects/:id/edit', :to => "company_other_objects#edit"
+  match '/requirements/incorps/company_other_objects/:id/delete', :to => "company_other_objects#destroy"
+  
+  # Routes for Company incidental Objects
+  match '/requirements/incorps/company_incidental_objects', :to => "company_incidental_objects#index"
+  match '/requirements/incorps/company_incidental_objects/:id', :to => "company_incidental_objects#show"
+  match '/requirements/incorps/company_incidental_objects/:id/edit', :to => "company_incidental_objects#edit"
+  match '/requirements/incorps/company_incidental_objects/:id/delete', :to => "company_incidental_objects#destroy"
   
 end
 resources :password_resets

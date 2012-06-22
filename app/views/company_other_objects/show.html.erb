@@ -6,8 +6,7 @@
 </p>
 <br><br>
 <p>
-  <%= link_to "Edit", edit_company_other_object_path(@company_other_object) %> |
-  <%= link_to "Destroy", @company_other_object, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", company_other_objects_path %>
+ <a href="/clients/<%= @company_other_object.client_id %>/requirements/incorps/company_other_objects/<%= @company_other_object.id %>/edit"  >Edit</a> | 
+    <a href="/clients/<%= @company_other_object.client_id %>/requirements/incorps/company_other_objects">View All</a>
 </p>
 </div></div>

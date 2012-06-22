@@ -121,7 +121,13 @@ $(document).ready(function() {
 				'titlePosition'		: 'inside',
 				'transitionIn'		: 'none',
 				'transitionOut'		: 'none'
-			});	});
+			});
+			$("#various22").fancybox({
+				'titlePosition'		: 'inside',
+				'transitionIn'		: 'none',
+				'transitionOut'		: 'none'
+			});	
+				});
 </script>
 </head>
 
@@ -158,7 +164,17 @@ $(document).ready(function() {
              </div>
 
         </div>
-
+<div>
+		<% if controller.controller_name == 'clients' %>
+		<% if !@client.client_name.nil?%>
+		   <%= CompanyName.find_by_client_id_and_status(params[:id],true).name rescue "" %>
+		<% else %>
+		   <%= Client.find_by_id(params[:id]).client_name rescue "" %>
+		<% end %>
+	 <% else %>
+	  <%= CompanyName.find_by_client_id_and_status(params[:client_id],true).name rescue "" %>
+	<% end %>
+</div>
           <div id="header_right"> 
          <div class="topmenu">
          <ul><li><%= link_to "Account", user_path(current_user) %></li>
