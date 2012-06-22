@@ -12,13 +12,13 @@ development:
   adapter: sqlite3
   database: db/development.sqlite3
   pool: 5
-<<<<<<< HEAD
+
   username: root
   password: 
   #socket: /var/run/mysqld/mysqld.sock
-=======
+
   timeout: 5000
->>>>>>> aditya
+
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -27,22 +27,18 @@ test:
   adapter: sqlite3
   database: db/test.sqlite3
   pool: 5
-<<<<<<< HEAD
   username: root
   password: 
   #socket: /var/run/mysqld/mysqld.sock
-=======
   timeout: 5000
->>>>>>> aditya
+
 
 production:
   adapter: sqlite3
   database: db/production.sqlite3
   pool: 5
-<<<<<<< HEAD
   username: root
   password: 
-  #socket: /var/run/mysqld/mysqld.sock
-=======
+  #socket: /var/run/mysqld/mysqld.sockåå
   timeout: 5000
->>>>>>> aditya
+
