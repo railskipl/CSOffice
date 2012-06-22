@@ -5,11 +5,11 @@ class CompdirsController < ApplicationController
   end
   def edit
     @compdir = Compdir.find(params[:id])
-<<<<<<< HEAD
+
     @contacts =  Compdir.find_all_by_client_id(params[:client_id]) 
-=======
+
     @comp_dir =  Compdir.find_by_id(params[:id]).din_id
->>>>>>> 5fb2e0439c053b937a1fbe5ba553414fa2fa1ef8
+
   end
   def update
     @compdir = Compdir.find(params[:id])
