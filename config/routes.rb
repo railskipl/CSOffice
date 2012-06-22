@@ -32,10 +32,7 @@ resources :clients do
   match '/requirements/din_details/compshares/:id/edit', :to => "compshares#edit"
   match '/requirements/form1a_details/form1as/:id/edit', :to => "form1as#edit"
   match '/requirements/incorps', :to => "incorps#index"
-<<<<<<< HEAD
-=======
-  
->>>>>>> 5fb2e0439c053b937a1fbe5ba553414fa2fa1ef8
+
   #PDF for AOA
   match '/requirements/incorps/aoa', :to => 'incorps#aoa'
  
