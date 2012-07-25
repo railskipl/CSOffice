@@ -18,6 +18,11 @@ end
 def create
     @company_director_designation =  CompanyDirectorDesignation.new(params[:company_director_designation])
     if @company_director_designation.save
+         CompanyDirectorDesignation.find_all_by_client_id(@company_director_designation.client_id).each do |f|
+          if f.id != @company_director_designation.id
+           f.update_attribute(:status , 0) 
+          end
+         end
       redirect_to("/clients/#{@company_director_designation.client_id}/requirements/incorps")
     else
       render :action => 'new'

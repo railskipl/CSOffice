@@ -62,8 +62,8 @@
   <tr>
     <td align="right" valign="middle">Is Indian </td>
     <td align="left" valign="middle">
-      <%= f.radio_button  "is_indian", "Yes", :checked => "checked" %>Yes
-      <%= f.radio_button  "is_indian", "No" %>No
+       <%= f.radio_button  :is_indian, "Yes", :checked => "checked" %>Yes
+      <%= f.radio_button   :is_indian, "No" %>No
     </td>
   </tr>
   <tr>
@@ -81,8 +81,8 @@
     <td align="right" valign="middle">Gender</td>
     <td align="left" valign="middle">
         
-        <%= f.radio_button  "gender", "Male", :checked => "checked" %>Male
-        <%= f.radio_button  "gender", "Female" %>Female
+        <%= f.radio_button :gender ,"Male",  :checked => "checked" %>Male
+        <%= f.radio_button :gender,"Female" %>Female
     </td>
   </tr>
   <tr>

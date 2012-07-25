@@ -1,0 +1,47 @@
+<%= form_for(@company_minute) do |f| %>
+  <% if @company_minute.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@company_minute.errors.count, "error") %> prohibited this company_minute from being saved:</h2>
+
+      <ul>
+      <% @company_minute.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :date %><br />
+    <%= f.date_select :date %>
+  </div>
+  
+  <% if params[:agenda_id] == "2" %>
+  	<div class="field">
+    <%= f.label :description %><br />
+    <% bank_detail = Bankdetail.find_by_notice_id(params[:notice_id]) %>
+    <% res_matter = "RESOLVED THAT a banking account of the " + CompanyName.find_by_status_and_client_id(true,params[:client_id]).name + " be opened with at bank " + bank_detail.bank + " " + bank_detail.city   rescue "" %>
+    <%= f.text_area :description, :value => res_matter %>
+  	</div>
+  <% else %>
+    <div class="field">
+    <%= f.label :description %><br />
+    <% dir = CompanyDirectorDesignation.find_by_client_id_and_status(params[:client_id],true).din_id %>
+    <% res_matter = "RESOLVED THAT a director " +  dir.to_s + " appointed" rescue "" %>
+    <%= f.text_area :description, :value => res_matter %>
+  	</div>
+  <% end %>
+  
+      <% if @company_minute.agenda_id == nil  %>
+         <%= f.hidden_field :agenda_id, :value => params[:agenda_id] %>
+      <% end %>
+    <% if @company_minute.client_id == nil  %>
+    <%= f.hidden_field :client_id, :value => params[:client_id] %>
+      <% end %>
+        <% if @company_minute.notice_id == nil  %>
+    <%= f.hidden_field :notice_id, :value => params[:notice_id] %>
+      <% end %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

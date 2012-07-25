@@ -1,0 +1,26 @@
+<div align="center" id="middle">
+    <div class="newuser_box1">
+<center>
+<table border="" cellpadding="5">
+  <tr>
+    <th>Title</th>
+    <th>Res matter</th>
+   <th colspan="3">Action</th>
+  </tr>
+
+<% @agendas.each do |agenda| %>
+  <tr>
+    <td><%= agenda.title %></td>
+    <td><%= agenda.res_matter %></td>
+    <td><%= link_to 'Show', agenda %></td>
+    <td><%= link_to 'Edit', edit_agenda_path(agenda) %></td>
+   	  <td><a href="/agendas/<%= agenda.id %>/delete" onclick="if(confirm('Are you sure you want to delete this page?'))  return true;  else  return false;" >Destroy</a>
+  </tr>
+<% end %>
+</table>
+</center>
+<br />
+
+<%= link_to 'New Agenda', new_agenda_path %>
+</div>
+</div>

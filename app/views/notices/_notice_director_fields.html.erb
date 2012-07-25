@@ -1,0 +1,8 @@
+  <div class="fields">
+  <p>   <%= f.label :din_id, "Director" %><br />
+     
+   <%= f.collection_select :din_id, Compdir.find_all_by_client_id(params[:client_id],:order => "id"), :din_id, :din_id %>
+    <%= link_to_remove_fields "remove", f %> 
+    </p>
+  </div>
+    

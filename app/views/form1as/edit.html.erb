@@ -1,10 +1,13 @@
-<style>
-.a{
-	color:gray;
-}
-</style>
-<div align="center" id="middle">
+<script>
+function goBack()
+  {
+  window.history.back()
+  }
+</script>
+
+ <div align="center" id="middle">
     <div class="newuser_box1">
+
 <%= form_for(@form1a) do |f| %>
 <table> 
 	<tr>
@@ -13,7 +16,7 @@
 	</tr>
 	
 	<tr>
-		<th align="justify"><%= f.label	"Type of company :" ,:class => "a"%></th>
+		<th align="justify"><%= f.label	"Type of company :" %></th>
 		<td>  
       	<%= f.radio_button :type_of_company ,"New Company" %>New Company
     	<%= f.radio_button :type_of_company ,"Section 25 company" %>Section 25 company
@@ -23,7 +26,7 @@
 	</tr>
 	
 	<tr>
-		<th align="justify" ><%= f.label "State whether the proposed company is public or private :" ,:class => "a" %></th> 
+		<th align="justify" ><%= f.label "State whether the proposed company is public or private :" %></th> 
       	<td>
       		<%= f.radio_button :pvt_pub ,"private" %>Private
     		<%= f.radio_button :pvt_pub ,"public" %>Public
@@ -31,17 +34,17 @@
     </tr>
     
 	<tr>
-		<th align="justify"><%= f.label "State the category of proposed company :",:class => "a" %></th>
-		<td><%= f.select :catagories, options_for_select([ "Company Limited by shares", "Company Limited by guarentee", "Unlimited Company" ]) %></td>
+		<th align="justify"><%= f.label "State the category of proposed company :" %></th>
+		<td><%= f.select :catagories, options_for_select([ "Company Limited by shares", "Company Limited by guarentee", "Unlimited Company" ]),:include_blank => true %></td>
 	</tr>
 	
 	<tr>
-		<th align="justify"><%= f.label "State the sub-category of proposed company :" ,:class => "a" %> </th>
-		<td><%= f.select :sub_cat, options_for_select([ "Union Government Company", "State Government Company", "Indian Government COmpany","Subsidiary of Foreign Company","Guarantee and association company" ]) %></td>
+		<th align="justify"><%= f.label "State the sub-category of proposed company :" %> </th>
+		<td><%= f.select :sub_cat, options_for_select([ "Union Government Company", "State Government Company", "Indian Government COmpany","Subsidiary of Foreign Company","Guarantee and association company" ]),:include_blank => true %></td>
 	</tr>
 	
 	<tr>
-		<th align="justify"><%= f.label "Whether the proposed company is :" ,:class => "a" %></th>
+		<th align="justify"><%= f.label "Whether the proposed company is :" %></th>
       	<td>
       		<%= f.radio_button :proposed_company ,"SC" %>Having share capital
     		<%= f.radio_button :proposed_company ,"Not-SC" %>Not having share capital
@@ -49,45 +52,45 @@
 	</tr>
 
 	<tr>
-   		<th align="justify" > <%= f.label "Name of the state in which proposed company is to be registered :" ,:class => "a" %></th>
+   		<th align="justify" > <%= f.label "Name of the state in which proposed company is to be registered :" %></th>
    		<td> <%= f.collection_select :state_id, State.all(:order => "id"), :id, :state_name, :selected => 15 %></td>
 	</tr>
 
 	<tr>
-   		<th align="justify"> <%= f.label "Name of the office of the Registrar of Companies in which proposed company is to be registered :" ,:class => "a" %></th>
+   		<th align="justify"> <%= f.label "Name of the office of the Registrar of Companies in which proposed company is to be registered :" %></th>
     	<td><%= f.collection_select :roc_id, Roc.all(:order => "id"), :id, :roc_name %></td>
 	</tr>
 
 	<tr>
-		<th align="justify"><%= f.label "No of promoters :",:class => "a" %></th>
+		<th align="justify"><%= f.label "No of promoters :" %></th>
 		<td><%= f.text_field :no_of_promoters %></td>
 	</tr>
 
 	<tr>
-		<th align="justify"><%= f.label	"Whether the proposed name(s) is in consonance with the main objects :" ,:class => "a" %></th>
+		<th align="justify"><%= f.label	"Whether the proposed name(s) is in consonance with the main objects :" %></th>
       	<td>
-      		<%= f.radio_button :is_consonance_with ,true %>Yes
-      		<%= f.radio_button :is_consonance_with ,false %>No
+      		<%= f.radio_button :is_consonance_with , "Yes" %>Yes
+      		<%= f.radio_button :is_consonance_with , "No" %>No
       	</td>
     </tr>
 
 	<tr>
-		<th align="justify"><%= f.label "Whether the proposed name(s) are based on a registered trade mark or is the subject matter of an application pending for registration under the trade marks Act:" ,:class => "a" %></th>
+		<th align="justify"><%= f.label "Whether the proposed name(s) are based on a registered trade mark or is the subject matter of an application pending for registration under the trade marks Act:" %></th>
       	<td>
-      		<%= f.radio_button :have_registered_trade_mark  ,true %>Yes
-      		<%= f.radio_button :have_registered_trade_mark  ,false %>No
+      		<%= f.radio_button :have_registered_trade_mark, "Yes" %>Yes
+      		<%= f.radio_button :have_registered_trade_mark , "No" %>No
       	</td>
     </tr>
     
     <tr>
-		<th align="justify"><%= f.label "If yes, furnish particulars of trade mark or application :",:class => "a" %></th>
+		<th align="justify"><%= f.label "If yes, furnish particulars of trade mark or application :" %></th>
       	<td>
       		<%= f.text_area :furnish_particulars_trade_mark, :rows => 2 %>
       	</td>
     </tr>
 	<tr>
 		<th align="justify">
-			<%= f.label "Proposed authorized capital:",:class => "a" %> (in Rs.)</th>
+			<%= f.label "Proposed authorized capital:" %> (in Rs.)</th>
       	<td>
       		<%= f.text_field :proposed_authorised_capital, :size => 5 %>
       	</td>
@@ -95,16 +98,18 @@
 	
 	<tr>
 		<th align="justify">
-			<%= f.label "Proposed authorized capital:(in words)",:class => "a" %></th>
+			<%= f.label "Proposed authorized capital:(in words)" %></th>
       	<td>
       		<%= f.text_field :proposed_authorised_capital_in_words %>
       	</td>
     </tr>
-  
+   
 	<tr>
 		<td>
 		<div class="actions">
-		<%= f.submit "Update", :class=>"signup_button" %>
+		<%= f.submit "Update" %>
+		 <input type="button" onclick="goBack()" value="Cancel" /> 
+
 		</div>
 		</td>
 		
@@ -115,4 +120,5 @@
 </div>
 </div>
 
-
+ </div>
+</div>

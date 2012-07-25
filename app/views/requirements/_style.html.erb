@@ -1,0 +1,19 @@
+<div style="width:80%;float: left;" >
+<br><br><br>
+
+<h2>Requirements 
+	<% if controller.controller_name == 'clients' %>
+		<% if @client.client_name.nil?%>
+		   <%= CompanyName.find_by_client_id_and_status(params[:id],true).name rescue "" %>
+		<% else %>
+		   <%= Client.find_by_id(params[:id]).client_name rescue "" %>
+		<% end %>
+	 <% else %>
+	  <%= CompanyName.find_by_client_id_and_status(params[:client_id],true).name rescue "" %>
+	<% end %>
+</h2> 
+
+<p><%= link_to "Din",  {:controller=>"din_details", :action=>"index"}, :class=> "addlink" %></p>
+<p><%= link_to "Form1a details",  {:controller=>"form1a_details", :action=>"index"}, :class=> "addlink" %></p>
+<p><%= link_to "incorps",  {:controller=>"incorps", :action=>"index"}, :class=> "addlink" %></p>
+</div>

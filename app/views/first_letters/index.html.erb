@@ -1,0 +1,34 @@
+<div align="center" id="middle">
+    <div class="newuser_box">
+<h1>Listing first letters</h1>
+<br>
+<table border="" cellpadding="5">
+  <tr>
+    <th>Company name</th>
+     <th>CS Name</th>
+    <th>Header</th>
+    <th>Stationary name</th>
+    <th colspan="3">Action</th>
+    
+  </tr>
+
+<% @first_letters.each do |first_letter| %>
+  <tr>
+    <td><%= first_letter.company_name %></td>
+    <td><%= first_letter.cs_name %></td>
+    <td><%= first_letter.header %></td>
+    <td><%= first_letter.stationary_name %></td>
+    <td><a href="/clients/<%= first_letter.client_id %>/first_letters/<%= first_letter.id %>" class="icon-1 info-tooltip" ></a>
+   	<td><a href="/clients/<%= first_letter.client_id %>/first_letters/<%= first_letter.id %>/edit" class="icon-2 info-tooltip" ></a>
+   	<td><a href="/clients/<%= first_letter.client_id %>/first_letters/<%= first_letter.id %>/delete" onclick="if(confirm('Are you sure you want to delete this page?'))  return true;  else  return false;" class = "icon-3 info-tooltip" ></a>
+       <a href="/clients/<%= params[:client_id] %>/first_letters/<%= first_letter.id %>/fl.pdf" target="_blank" >Pdf</a>
+   </tr>
+
+<% end %>
+</table><br/>
+
+
+ <a href="/clients/<%= params[:client_id] %>/first_letters/new"  >New</a>
+
+<br />
+

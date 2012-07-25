@@ -63,7 +63,7 @@
     </tr>
      <tr><th align="justify"> Date :<br> <%= f.date_select :date %><br>
     	</tr>
-    	<tr><th align="justify"> Expiry :<br> <%= f.date_select :expiry %><br>
+    	
     	</tr>
     	<% if @company_director_designation.status == nil || @company_director_designation.client_id == nil  %>
     	<%= f.hidden_field :status, :value =>1 %>

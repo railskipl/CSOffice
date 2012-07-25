@@ -13,8 +13,8 @@ end
 def create
     @company_main_object = CompanyMainObject.new(params[:company_main_object])
     if @company_main_object.save
-      flash[:notice] = "Successfully created product."
-      redirect_to @company_main_object
+      flash[:notice] = "Successfully created description."
+       redirect_to("/clients/#{@company_main_object.client_id}/requirements/incorps/obj")
     else
       render :action => 'new'
     end
@@ -32,8 +32,8 @@ def create
   def update
     @company_main_object = CompanyMainObject.find(params[:id])
     if @company_main_object.update_attributes(params[:company_main_object])
-      flash[:notice] = "Successfully updated product."
-      redirect_to @company_main_object
+      flash[:notice] = "Successfully updated description."
+      redirect_to ("/clients/#{@company_main_object.client_id}/requirements/incorps/company_main_objects")
     else
       render :action => 'edit'
     end
@@ -41,8 +41,8 @@ def create
     def destroy
     @company_main_object = CompanyMainObject.find(params[:id])
     @company_main_object.destroy
-    flash[:notice] = "Successfully destroyed product."
-    redirect_to company_main_objects_path
+    flash[:notice] = "Successfully destroyed description."
+    redirect_to ("/clients/#{@company_main_object.client_id}/requirements/incorps/obj")
   end
   
 

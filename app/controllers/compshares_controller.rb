@@ -22,7 +22,7 @@ class CompsharesController < ApplicationController
     @compshare = Compshare.new(params[:compshare])
    
       if @compshare.save
-        redirect_to("/clients/#{@compshare.client_id}/requirements/form1a_details")
+        redirect_to("/clients/#{@compshare.client_id}/requirements/din_details")
       else
         redirect_to "/clients/#{@compshare.client_id}/requirements/din_details"
       end

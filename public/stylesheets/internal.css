@@ -235,8 +235,17 @@ color: #09507d;
     height: auto;
     padding: 10px;
     text-align: left;
-    width: 500px;}
+    width: 600px;}
 	
+	.newuser_box5 {
+    background: #FFFFFF;
+    border: 5px solid #BDBCBD;
+    border-radius: 10px;
+    box-shadow: 0px 0px 3px #b1b1b1;
+    height: auto;
+    padding: 10px;
+    text-align: left;
+    width: 800px;}
 	
 	.heading1{ font-size:20px; color:#105581; font-weight:bold}
 	.heading2{ font-size:16px; color:#333333; font-weight:bold}

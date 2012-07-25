@@ -1,4 +1,7 @@
- <div align="center" id="middle">
+<div style="width:35%;float:left">
+<%= render 'requirements/style' %>
+</div>
+ <div align="center" id="middle" style="width: 50%;float: left">
     <div class="newuser_box">
 	 <a id="various1" href="#inline1" title="" class="addlink">Company Director</a>
 	  <p><a id="various2" href="#inline2" title="" class="addlink"> Company Share Holder</a></p>
@@ -7,44 +10,10 @@
 	
 		<div style="display:none">
 		
-		<div id="inline1" style="width:420px; height:auto; overflow:auto; text-align:left">
+		<div id="inline1" style="width:450px; height:auto; overflow:auto; text-align:left">
 <div>
 	<script type="text/javascript">
 
-function disableElement()
-{
-
-document.getElementById("compdir_cessation_date_1i").disabled=true;
-
-document.getElementById("compdir_cessation_date_2i").disabled=true;
-
-document.getElementById("compdir_cessation_date_3i").disabled=true;
-}
-
-function enableElement(){
-	document.getElementById("compdir_cessation_date_1i").disabled=false;
-
-document.getElementById("compdir_cessation_date_2i").disabled=false;
-
-document.getElementById("compdir_cessation_date_3i").disabled=false;
-}
-function disableElement1()
-{
-
-document.getElementById("compshare_cessation_date_1i").disabled=true;
-
-document.getElementById("compshare_cessation_date_2i").disabled=true;
-
-document.getElementById("compshare_cessation_date_3i").disabled=true;
-}
-
-function enableElement1(){
-document.getElementById("compshare_cessation_date_1i").disabled=false;
-
-document.getElementById("compshare_cessation_date_2i").disabled=false;
-
-document.getElementById("compshare_cessation_date_3i").disabled=false;
-}
 
 </script>
 <%= form_for(@compdir) do |f| %>
@@ -70,15 +39,13 @@ document.getElementById("compshare_cessation_date_3i").disabled=false;
    <tr>
    	  <td>
     	Status : <br>
-    
-	
-      	<%= f.radio_button :status ,0,:onclick=>'disableElement()' %>Proposed director<br>
+    	 <%= f.radio_button :status ,0,:onclick=>'disableElement()' %>Proposed director<br>
     	<%= f.radio_button :status ,1,:onclick=>"disableElement()" %>Current director<br>
     	<%= f.radio_button :status ,2,:onclick=>"enableElement()",:checked => true %>Old Director
     </td>
     <tr>
   	<td>Appointment Date :<br> <%= f.date_select :date %><br>
-  		Cessation Date :<br> <%= f.date_select :cessation_date %>  </td>
+  		 </td>
    <td><%= f.hidden_field :client_id, :value => "#{params[:client_id]}" %></td>
   
   
@@ -93,12 +60,28 @@ document.getElementById("compshare_cessation_date_3i").disabled=false;
 <div>
 <div>
 
-<strong>
       	<% @contacts.each do |c|%>
-      	<%= "Directors:  #{c.din_id} Status: #{c.status} Appointment Date: #{c.date}" %><a href="/compdirs/<%= c.id %>/edit" >edit</a> <br/>
-      	<% end %>
-      	</strong>
-
+    	 	<% if c.status == 0 %>
+    	 	<%= "Directors:  #{c.din_id}" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    	 	<%= "Status: Proposed Director" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    	 	<%= "Appointment Date: #{c.date}" %>
+    	 	<a href="/clients/<%= params[:client_id]%>/requirements/din_details/compdirs/<%= c.id %>/edit" >Edit</a><br>
+    	 	
+    	 	<% elsif c.status == 1 %>
+			<%= "Directors:  #{c.din_id}" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    	 	<%= "Status: Current Director" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    	 	<%= "Appointment Date: #{c.date}" %>    	 	
+    	 	<a href="/clients/<%= params[:client_id]%>/requirements/din_details/compdirs/<%= c.id %>/edit" >Edit</a><br>
+    	 
+    	 	<% elsif c.status == 2 %>
+			<%= "Directors:  #{c.din_id}" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    	 	<%= "Status: Old Director" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    	 	<%= "Appointment Date: #{c.date}" %>   
+    	 	<a href="/clients/<%= params[:client_id]%>/requirements/din_details/compdirs/<%= c.id %>/edit" >Edit</a><br>
+    	<% end %>
+    	
+ 	<% end %>
+	
      
 </div>
 </div>
@@ -116,7 +99,7 @@ document.getElementById("compshare_cessation_date_3i").disabled=false;
 
 <div style="display:none">
 		
-		<div id="inline2" style="width:400px; height:auto; overflow:auto; text-align:left">
+		<div id="inline2" style="width:500px; height:auto; overflow:auto; text-align:left">
 <div>
 	<%= form_for(@compshare) do |f| %>
   <% if @compshare.errors.any? %>
@@ -151,7 +134,7 @@ document.getElementById("compshare_cessation_date_3i").disabled=false;
     	<%= f.radio_button :status ,2,:onclick=>'enableElement1()' ,:checked => true%>Old Shareholder
     </td>
    <tr><td>Appointment Date :<br> <%= f.date_select :date %><br>
-   	       Cessation Date :<br> <%= f.date_select   :cessation_date %>  </td>
+   	        </td>
    	       
    	<tr>
     <td><%= f.label :is_director %>
@@ -172,12 +155,28 @@ document.getElementById("compshare_cessation_date_3i").disabled=false;
 <div class="heading1">List of added Shareholders</div>
 <div>
 <div>
-
-<strong>
-      	<% @con.each do |d|%>
-      	<%= "Directors:  #{d.din_id} Status: #{d.status} Appointment Date: #{d.date}" %><a href="/compshares/<%= d.id %>/edit" >edit</a> <br/>
-      	<% end %>
-      	</strong>
+	<% @con.each do |c|%>
+    	 	<% if c.status == 0 %>
+    	 	<%= "Directors:  #{c.din_id}" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    	 	<%= "Status: Promoter" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    	 	<%= "Appointment Date: #{c.date}" %>
+    	   <a href="/clients/<%= params[:client_id]%>/requirements/din_details/compshares/<%= c.id %>/edit" >Edit</a><br>
+    	 	
+    	 	<% elsif c.status == 1 %>
+			<%= "Directors:  #{c.din_id}" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    	 	<%= "Status: Current Shareholder" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    	 	<%= "Appointment Date: #{c.date}" %>    	 	
+    	   <a href="/clients/<%= params[:client_id]%>/requirements/din_details/compshares/<%= c.id %>/edit" >Edit</a><br>
+    	 
+    	 	<% elsif c.status == 2 %>
+			<%= "Directors:  #{c.din_id}" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    	 	<%= "Status: Old Shareholder" %>&nbsp;
+    	 	<%= "Appointment Date: #{c.date}" %>   
+    	   <a href="/clients/<%= params[:client_id]%>/requirements/din_details/compshares/<%= c.id %>/edit" >Edit</a><br>
+<br>
+    	<% end %>
+    	
+ 	<% end %>
 </div>
 </div>
 </div>

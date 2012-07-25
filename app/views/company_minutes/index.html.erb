@@ -1,0 +1,27 @@
+<div align="center" id="middle">
+    <div class="newuser_box">
+<h1>Listing company_minutes</h1>
+
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @company_minutes.each do |company_minute| %>
+  <tr>
+    <td><%= company_minute.date %></td>
+    <td><%= company_minute.description %></td>
+     <td><a href="/clients/<%= company_minute.client_id %>/minutes/notices/<%= company_minute.notice_id %>/agenda/<%= company_minute.agenda_id %>/company_minutes/<%= company_minute.id %>">Show</a>
+    <td><a href="/clients/<%= company_minute.client_id %>/minutes/notices/<%= company_minute.notice_id %>/agenda/<%= company_minute.agenda_id %>/company_minutes/<%= company_minute.id %>/edit">Edit</a>
+	<td><a href="/clients/<%= company_minute.client_id %>/minutes/notices/<%= company_minute.notice_id %>/agenda/<%= company_minute.agenda_id %>/company_minutes/<%= company_minute.id %>/delete" onclick="if(confirm('Are you sure you want to delete this page?'))  return true;  else  return false;" >Destroy</a>
+    
+  </tr>
+<% end %>
+</table>
+
+</div>
+</div>

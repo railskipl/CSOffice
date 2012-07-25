@@ -1,0 +1,84 @@
+<%= form_for(@company_address) do |f| %>
+<table> 
+		
+	<tr>
+		<th align="justify"><%= f.label "address line 1 " %></th>
+		<td><%= f.text_field :line1,:size =>15 %></td>
+	</tr>
+     <tr>
+		<th align="justify"><%= f.label "address line 2" %></th>
+		<td><%= f.text_field :line2,:size =>15 %></td>
+    </tr>
+    <tr>
+		<th align="justify"><%= f.label "City" %></th>
+		<td><%= f.text_field :city,:size =>15 %></td>
+    </tr>
+    <tr>
+		<th align="justify"><%= f.label "District" %></th>
+		<td><%= f.text_field :district,:size =>15 %></td>
+    </tr>
+    <tr>
+   		<th align="justify" > <%= f.label "State:" %></th>
+   		<td> <%= f.collection_select :state, State.all(:order => "id"), :id, :state_name, :selected => 15 %></td>
+	</tr>
+	<tr>
+    <th align="justify" ><%= f.label "Country" %></th>
+      <td>  <%= select :contact, :per_country, Country.all.map {|c| [c.country_name]}, :selected => 76 %>
+    </td>
+  </tr>
+    <tr>
+		<th align="justify"><%= f.label "Pin code" %></th>
+		<td><%= f.text_field :pin_code,:size =>15 %></td>
+    </tr>
+    <tr>
+		<th align="justify"><%= f.label "Email id" %></th>
+		<td><%= f.text_field :email_id,:size =>15 %></td>
+    </tr>
+    <tr>
+		<th align="justify"><%= f.label "Name proposed roc" %></th>
+		<td><%= f.text_field :name_proposed_roc,:size =>15 %></td>
+    </tr>
+    <tr>
+		<th align="justify"><%= f.label "Police station name" %></th>
+		<td><%= f.text_field :police_station_name,:size =>15 %></td>
+    </tr>
+    <tr>
+		<th align="justify"><%= f.label "police_station_line1" %></th>
+		<td><%= f.text_field :police_station_line1,:size =>15 %></td>
+    </tr>
+    <tr>
+		<th align="justify"><%= f.label :police_station_line2 %></th>
+		<td><%= f.text_field :police_station_line2,:size =>15 %></td>
+    </tr>
+    <tr>
+		<th align="justify"><%= f.label "police_station_city" %></th>
+		<td><%= f.text_field :police_station_city,:size =>15 %></td>
+    </tr>
+    <tr>
+   		<th align="justify" > <%= f.label "Police station state" %></th>
+   		<td> <%= f.collection_select :police_station_state, State.all(:order => "id"), :id, :state_name, :selected => 15 %></td>
+	</tr>
+	
+    <tr>
+		<th align="justify"><%= f.label "Police station pin code" %></th>
+		<td><%= f.text_field :police_station_pin_code,:size =>15 %></td>
+    </tr>
+    <tr><th align="justify"> Date :<br> <%= f.date_select :date %><br>
+    	</tr>
+    	<% if @company_address.status == nil || @company_address.client_id == nil  %>
+    	<%= f.hidden_field :status, :value =>1 %>
+    <%= f.hidden_field :client_id, :value => "#{params[:client_id]}" %>
+    <% end %>
+	<tr>
+		<td>
+		<div class="actions">
+		<%= f.submit "Save", :class=>"signup_button" %>
+		</div>
+		</td>
+		
+	</tr>
+<% end %>
+</table>
+
+
+

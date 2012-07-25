@@ -1,0 +1,18 @@
+<div align="center" id="middle">
+    <div class="newuser_box">
+
+<p>
+  <b>Title:</b>
+  <%= @agenda.title %>
+</p>
+
+<p>
+  <b>Res matter:</b>
+  <%= @agenda.res_matter %>
+</p>
+
+
+<%= link_to 'Edit', edit_agenda_path(@agenda) %> |
+<%= link_to 'Back', agendas_path %>
+</div>
+</div>

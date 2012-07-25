@@ -26,12 +26,12 @@
     
 	<tr>
 		<th align="justify"><%= f.label "State the category of proposed company :" %></th>
-		<td><%= f.select :catagories, options_for_select([ "Company Limited by shares", "Company Limited by guarentee", "Unlimited Company" ]) %></td>
+		<td><%= f.select :catagories, options_for_select([ "Company Limited by shares", "Company Limited by guarentee", "Unlimited Company" ]),:include_blank => true %></td>
 	</tr>
 	
 	<tr>
 		<th align="justify"><%= f.label "State the sub-category of proposed company :" %> </th>
-		<td><%= f.select :sub_cat, options_for_select([ "Union Government Company", "State Government Company", "Indian Government COmpany","Subsidiary of Foreign Company","Guarantee and association company" ]) %></td>
+		<td><%= f.select :sub_cat, options_for_select([ "Union Government Company", "State Government Company", "Indian Government COmpany","Subsidiary of Foreign Company","Guarantee and association company" ]),:include_blank => true %></td>
 	</tr>
 	
 	<tr>
@@ -60,16 +60,16 @@
 	<tr>
 		<th align="justify"><%= f.label	"Whether the proposed name(s) is in consonance with the main objects :" %></th>
       	<td>
-      		<%= f.radio_button :is_consonance_with ,true %>Yes
-      		<%= f.radio_button :is_consonance_with ,false %>No
+      		<%= f.radio_button :is_consonance_with , "Yes" %>Yes
+      		<%= f.radio_button :is_consonance_with , "No" %>No
       	</td>
     </tr>
 
 	<tr>
 		<th align="justify"><%= f.label "Whether the proposed name(s) are based on a registered trade mark or is the subject matter of an application pending for registration under the trade marks Act:" %></th>
       	<td>
-      		<%= f.radio_button :have_registered_trade_mark  ,true %>Yes
-      		<%= f.radio_button :have_registered_trade_mark  ,false %>No
+      		<%= f.radio_button :have_registered_trade_mark, "Yes" %>Yes
+      		<%= f.radio_button :have_registered_trade_mark , "No" %>No
       	</td>
     </tr>
     
@@ -94,7 +94,9 @@
       		<%= f.text_field :proposed_authorised_capital_in_words %>
       	</td>
     </tr>
+    <% if @form1a.client_id == nil%>
     <%= f.hidden_field :client_id, :value => "#{params[:client_id]}" %>
+    <% end %>
 	<tr>
 		<td>
 		<div class="actions">
