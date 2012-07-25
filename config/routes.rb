@@ -1,9 +1,7 @@
 Csapp::Application.routes.draw do |map|
-<<<<<<< HEAD
-    
+
 
   resources :clients
-=======
 
   
 
@@ -17,7 +15,7 @@ get "set_mods/index"
 get "meetings/index"
 
 resources :clients
->>>>>>> 852246ec39c8beb200a994203c47f254d0759306
+
 resources :shares
 match '/users/:id/staffs', :to => "staffs#index"
 
@@ -100,18 +98,9 @@ resources :clients do
   match '/requirements/din_details/compshares/:id/edit', :to => "compshares#edit"
   match '/requirements/form1a_details/form1as/:id/edit', :to => "form1as#edit"
   match '/requirements/incorps', :to => "incorps#index"
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-  
->>>>>>> 5fb2e0439c053b937a1fbe5ba553414fa2fa1ef8
-=======
   match '/requirements/incorps/obj', :to => "incorps#obj"
->>>>>>> 852246ec39c8beb200a994203c47f254d0759306
->>>>>>> aditya
+
   #PDF for AOA
   match '/requirements/incorps/aoa', :to => 'incorps#aoa'
  
@@ -120,19 +109,19 @@ resources :clients do
  
  #PDF for MOA
   match '/requirements/incorps/moa', :to => 'incorps#moa'
-<<<<<<< HEAD
+
   
 # Routes for Company Main Objects
-=======
+
    #PDF for first_letter
    match  '/first_letters/:id/fl',             :to => "first_letters#fl"
    
->>>>>>> 852246ec39c8beb200a994203c47f254d0759306
+
   match '/requirements/incorps/company_main_objects', :to => "company_main_objects#index"
   match '/requirements/incorps/company_main_objects/:id', :to => "company_main_objects#show"
   match '/requirements/incorps/company_main_objects/:id/edit', :to => "company_main_objects#edit"
   match '/requirements/incorps/company_main_objects/:id/delete', :to => "company_main_objects#destroy"
-<<<<<<< HEAD
+
   
   # Routes for Company Other Objects
   match '/requirements/incorps/company_other_objects', :to => "company_other_objects#index"
@@ -140,7 +129,7 @@ resources :clients do
   match '/requirements/incorps/company_other_objects/:id/edit', :to => "company_other_objects#edit"
   match '/requirements/incorps/company_other_objects/:id/delete', :to => "company_other_objects#destroy"
   
-=======
+
   
   # Routes for Company Other Objects
   match '/requirements/incorps/company_other_objects', :to => "company_other_objects#index"
@@ -148,7 +137,7 @@ resources :clients do
   match '/requirements/incorps/company_other_objects/:id/edit', :to => "company_other_objects#edit"
   match '/requirements/incorps/company_other_objects/:id/delete', :to => "company_other_objects#destroy"
   
->>>>>>> 852246ec39c8beb200a994203c47f254d0759306
+
   # Routes for Company incidental Objects
   match '/requirements/incorps/company_incidental_objects', :to => "company_incidental_objects#index"
   match '/requirements/incorps/company_incidental_objects/:id', :to => "company_incidental_objects#show"

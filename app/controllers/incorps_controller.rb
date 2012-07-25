@@ -37,8 +37,7 @@ end
    @company_incidental_objects = CompanyIncidentalObject.find_all_by_client_id(params[:client_id])
    @company_other_objects = CompanyOtherObject.find_all_by_client_id(params[:client_id])
    end 
-<<<<<<< HEAD
-=======
+
 
 def obj
   
@@ -53,5 +52,5 @@ def obj
      @company_incidental_objects = CompanyIncidentalObject.find_all_by_client_id(params[:client_id])
      @company_other_objects = CompanyOtherObject.find_all_by_client_id(params[:client_id])
  end 
->>>>>>> 852246ec39c8beb200a994203c47f254d0759306
+
 end

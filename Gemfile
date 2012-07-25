@@ -15,13 +15,13 @@ gem "will_paginate", "~> 3.0.pre2"
 gem "cancan"
 gem 'best_in_place'
 gem "prawn"
-<<<<<<< HEAD
 
-=======
+
+
 gem 'nested_form'
 gem 'awesome_nested_fields'
    
->>>>>>> 852246ec39c8beb200a994203c47f254d0759306
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
