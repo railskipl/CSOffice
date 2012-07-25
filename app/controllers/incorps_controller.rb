@@ -37,4 +37,21 @@ end
    @company_incidental_objects = CompanyIncidentalObject.find_all_by_client_id(params[:client_id])
    @company_other_objects = CompanyOtherObject.find_all_by_client_id(params[:client_id])
    end 
+<<<<<<< HEAD
+=======
+
+def obj
+  
+     @moa_object = MoaObject.new
+     @moa_objects = MoaObject.find_all_by_user_id(current_user.id)
+     @company_main_object = CompanyMainObject.new
+     @company_incidental_object =CompanyIncidentalObject.new
+     @company_other_object =CompanyOtherObject.new
+     @incidental_objects = IncidentalObject.find_all_by_user_id(current_user.id)
+     @incidental_object = IncidentalObject.new
+     @company_main_objects = CompanyMainObject.find_all_by_client_id(params[:client_id])
+     @company_incidental_objects = CompanyIncidentalObject.find_all_by_client_id(params[:client_id])
+     @company_other_objects = CompanyOtherObject.find_all_by_client_id(params[:client_id])
+ end 
+>>>>>>> 852246ec39c8beb200a994203c47f254d0759306
 end

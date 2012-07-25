@@ -1,0 +1,35 @@
+
+      
+	<div class="tabscontainer">
+     <div class="tabs">
+         <div class="tab selected first" id="tab_menu_1">
+             <div class="link">Company Main Objects</div>
+             <div class="arrow"></div>
+         </div>
+         <div class="tab" id="tab_menu_2">
+             <div class="link"><strong>Company Incidental Objects</strong></div>
+             <div class="arrow"></div>
+         </div>
+          <div class="tab last" id="tab_menu_3">
+             <div class="link"><strong>Company Other Objects</strong></div>
+             <div class="arrow"></div>
+         </div>
+    </div>
+    <div class="curvedContainer">
+	    	<div class="tabcontent" id="tab_content_1" style="display:block">
+			<%= render 'company_main_objects/form'%>
+			<%= render 'company_main_objects/a' %>
+			
+  </div>
+
+  	<div class="tabcontent" id="tab_content_2">
+			<%= render 'company_incidental_objects/form'%>
+			<%= render 'company_incidental_objects/indexform' %>
+  </div>
+
+  	<div class="tabcontent" id="tab_content_3">
+			<%= render 'company_other_objects/form'%>
+  </div>
+
+ </div> </div>
+

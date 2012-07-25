@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  create_notice_for: MyString
+  company_name: MyString
+  date: 2012-06-26 15:41:16
+  place: MyString
+  issue: MyText
+
+two:
+  create_notice_for: MyString
+  company_name: MyString
+  date: 2012-06-26 15:41:16
+  place: MyString
+  issue: MyText

@@ -1,0 +1,44 @@
+<% if params[:agenda_id] == "2" %>
+<div class="tabscontainer">
+   <div class="tabs">
+       <div class="tab selected first" id="tab_menu_1">
+             <div class="link">Bank Name</div>
+             <div class="arrow"></div>
+       </div>
+       <div class="tab" id="tab_menu_2">
+             <div class="link"><strong>Resolution Matter</strong></div>
+             <div class="arrow"></div>
+       </div> 
+   </div>
+    <div class="curvedContainer">
+        <div class="tabcontent" id="tab_content_1" style="display:block">
+			<%= render 'bankdetails/form'%>
+		</div>
+        <div class="tabcontent" id="tab_content_2">
+				<%= render 'company_minutes/form'%>
+        </div>
+    </div>
+</div>
+<% elsif params[:agenda_id] == "5" %>
+<div class="tabscontainer">
+   <div class="tabs">
+   	 <div class="tab selected first" id="tab_menu_1">
+             <div class="link">Company Director Designation</div>
+             <div class="arrow"></div>
+       </div>
+     <div class="tab" id="tab_menu_2">
+             <div class="link"><strong>Resolution Matter</strong></div>
+             <div class="arrow"></div>
+       </div> 
+   </div>
+    <div class="curvedContainer">
+    	 <div class="tabcontent" id="tab_content_1" style="display:block">
+			<%= render 'company_director_designations/index'%>
+		</div>
+       <div class="tabcontent" id="tab_content_2">
+				<%= render 'company_minutes/form'%>
+        </div>
+    </div>
+</div>
+<% end %>
+

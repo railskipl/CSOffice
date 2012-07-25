@@ -5,11 +5,23 @@ OF CompanyAddress #{CompanyName.find_by_client_id(params[:client_id]).name}", :s
 
 pdf.text "The name of company is #{CompanyName.find_by_client_id(params[:client_id]).name}"
 
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> aditya
 	pdf.text ("The main Objects are <br>")
 
 	pdf.text ("The main Objects are")
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5fb2e0439c053b937a1fbe5ba553414fa2fa1ef8
+=======
+	pdf.text ("The main Objects are <br>")
+>>>>>>> 852246ec39c8beb200a994203c47f254d0759306
+>>>>>>> aditya
 	count = 0
 	  @company_main_objects.each do |c|
 	  	count += 1
@@ -29,6 +41,18 @@ pdf.text "The name of company is #{CompanyName.find_by_client_id(params[:client_
 	  count += 1
    		 pdf.text   "#{count})" "#{c.description}", :size => 10
        end      	
+<<<<<<< HEAD
 
 	
 
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+	
+=======
+	
+>>>>>>> 5fb2e0439c053b937a1fbe5ba553414fa2fa1ef8
+=======
+	
+>>>>>>> 852246ec39c8beb200a994203c47f254d0759306
+>>>>>>> aditya

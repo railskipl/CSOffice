@@ -14,7 +14,11 @@ def create
     @company_main_object = CompanyMainObject.new(params[:company_main_object])
     if @company_main_object.save
       flash[:notice] = "Successfully created description."
+<<<<<<< HEAD
        redirect_to("/clients/#{@company_main_object.client_id}/requirements/incorps/company_main_objects")
+=======
+       redirect_to("/clients/#{@company_main_object.client_id}/requirements/incorps/obj")
+>>>>>>> 852246ec39c8beb200a994203c47f254d0759306
     else
       render :action => 'new'
     end
@@ -42,7 +46,11 @@ def create
     @company_main_object = CompanyMainObject.find(params[:id])
     @company_main_object.destroy
     flash[:notice] = "Successfully destroyed description."
+<<<<<<< HEAD
     redirect_to ("/clients/#{@company_main_object.client_id}/requirements/incorps/company_main_objects")
+=======
+    redirect_to ("/clients/#{@company_main_object.client_id}/requirements/incorps/obj")
+>>>>>>> 852246ec39c8beb200a994203c47f254d0759306
   end
   
 

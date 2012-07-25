@@ -10,7 +10,33 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120615064138) do
+ActiveRecord::Schema.define(:version => 20120719053945) do
+
+  create_table "agendas", :force => true do |t|
+    t.string   "title"
+    t.text     "res_matter"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "bankdetails", :force => true do |t|
+    t.string   "city"
+    t.string   "bank"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "client_id"
+    t.integer  "notice_id"
+    t.integer  "agenda_id"
+  end
+
+  create_table "banks", :force => true do |t|
+    t.string   "city"
+    t.string   "bank_name"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "clients", :force => true do |t|
     t.string   "client_name"
@@ -87,12 +113,23 @@ ActiveRecord::Schema.define(:version => 20120615064138) do
     t.datetime "updated_at"
   end
 
+  create_table "company_minutes", :force => true do |t|
+    t.date     "date"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "client_id"
+    t.integer  "notice_id"
+    t.integer  "agenda_id"
+  end
+
   create_table "company_names", :force => true do |t|
     t.string   "name"
     t.boolean  "status"
     t.integer  "client_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.date     "date"
   end
 
   create_table "company_other_objects", :force => true do |t|
@@ -139,10 +176,10 @@ ActiveRecord::Schema.define(:version => 20120615064138) do
     t.string   "father_first_name"
     t.string   "father_middle_name"
     t.string   "father_last_name"
-    t.boolean  "is_indian"
+    t.text     "is_indian"
     t.string   "nationality"
     t.date     "dob"
-    t.boolean  "gender"
+    t.text     "gender"
     t.string   "birth_place"
     t.string   "pan_no"
     t.string   "voter_id"
@@ -210,6 +247,16 @@ ActiveRecord::Schema.define(:version => 20120615064138) do
     t.datetime "updated_at"
   end
 
+  create_table "first_letters", :force => true do |t|
+    t.string   "company_name"
+    t.text     "header"
+    t.text     "stationary_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "client_id"
+    t.string   "cs_name"
+  end
+
   create_table "form1as", :force => true do |t|
     t.integer  "din_id"
     t.string   "type_of_company"
@@ -221,8 +268,8 @@ ActiveRecord::Schema.define(:version => 20120615064138) do
     t.integer  "roc_id"
     t.integer  "no_of_promoters"
     t.integer  "main_object_id"
-    t.boolean  "is_consonance_with"
-    t.boolean  "have_registered_trade_mark"
+    t.text     "is_consonance_with"
+    t.text     "have_registered_trade_mark"
     t.text     "furnish_particulars_trade_mark"
     t.integer  "proposed_authorised_capital"
     t.string   "proposed_authorised_capital_in_words"
@@ -260,12 +307,46 @@ ActiveRecord::Schema.define(:version => 20120615064138) do
     t.datetime "sent_at"
   end
 
+  create_table "min_details", :force => true do |t|
+    t.string   "agenda"
+    t.integer  "user_id"
+    t.integer  "client_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "moa_objects", :force => true do |t|
     t.string   "title"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+  end
+
+  create_table "notice_agendas", :force => true do |t|
+    t.integer  "title"
+    t.integer  "notice_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "notice_directors", :force => true do |t|
+    t.integer  "din_id"
+    t.integer  "notice_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "notices", :force => true do |t|
+    t.string   "meeting_id"
+    t.string   "company_name"
+    t.datetime "date"
+    t.string   "place"
+    t.text     "issue"
+    t.integer  "client_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "proposed_names", :force => true do |t|
@@ -292,6 +373,13 @@ ActiveRecord::Schema.define(:version => 20120615064138) do
   create_table "roles_users", :id => false, :force => true do |t|
     t.integer "role_id"
     t.integer "user_id"
+  end
+
+  create_table "settings", :force => true do |t|
+    t.string   "meeting_name"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "shares", :force => true do |t|

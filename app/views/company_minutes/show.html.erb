@@ -1,0 +1,19 @@
+<div align="center" id="middle">
+    <div class="newuser_box">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Date:</b>
+  <%= @company_minute.date %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @company_minute.description %>
+</p>
+
+<a href="/clients/<%= @company_minute.client_id %>/minutes/notices/<%= @company_minute.notice_id %>/agenda/<%= @company_minute.agenda_id %>/company_minutes/<%= @company_minute.id %>/edit">Edit</a>
+|
+<a href="/clients/<%= @company_minute.client_id %>/minutes/notices/<%= @company_minute.notice_id %>/agenda/<%= @company_minute.agenda_id %>/company_minutes">Back</a>
+</div>
+</div>

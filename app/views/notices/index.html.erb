@@ -1,0 +1,33 @@
+<div align="center" id="middle">
+    <div class="newuser_box5">
+<h2 align="center">Notices </h2>
+<table border="">
+  <tr>
+    <th>Create notice for</th>
+    <th>Company name</th>
+    <th>Date</th>
+    <th>Place</th>
+    <th>Issue</th>
+    <th colspan="3">Action</th>
+    
+  </tr>
+
+<% @notices.each do |notice| %>
+  <tr>
+    <td><%= notice.meeting_id %></td>
+    <td><%= notice.company_name %></td>
+    <td><%= notice.date %></td>
+    <td><%= notice.place %></td>
+    <td><%= notice.issue %></td>
+
+    <td><a href="/clients/<%= notice.client_id %>/minutes/notices/<%= notice.id %>" class="icon-1 info-tooltip" ></a>
+   	<td><a href="/clients/<%= notice.client_id %>/minutes/notices/<%= notice.id %>/edit" class="icon-2 info-tooltip" ></a>
+   	<td><a href="/clients/<%= notice.client_id %>/minutes/notices/<%= notice.id %>/delete" onclick="if(confirm('Are you sure you want to delete this page?'))  return true;  else  return false;" class = "icon-3 info-tooltip" ></a>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+ <a href="/clients/<%= params[:client_id] %>/minutes/notices/new" >New</a>
+</div></div>

@@ -1,0 +1,20 @@
+<div align="center" id="middle">
+    <div class="newuser_box">
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>City:</b>
+  <%= @bankdetail.city %>
+</p>
+
+<p>
+  <b>Bank:</b>
+  <%= @bankdetail.bank %>
+</p>
+
+<a href="/clients/<%= @bankdetail.client_id %>/minutes/notices/<%= @bankdetail.notice_id %>/agenda/<%= @bankdetail.agenda_id %>/bankdetails/<%= @bankdetail.id %>/edit">Edit</a>
+|
+<a href="/clients/<%= @bankdetail.client_id %>/minutes/notices/<%= @bankdetail.notice_id %>/agenda/<%= @bankdetail.agenda_id %>/bankdetails/">Back</a>
+</div>
+</div>
