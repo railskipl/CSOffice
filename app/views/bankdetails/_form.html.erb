@@ -1,0 +1,34 @@
+<%= form_for(@bankdetail) do |f| %>
+  <% if @bankdetail.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bankdetail.errors.count, "error") %> prohibited this bankdetail from being saved:</h2>
+
+      <ul>
+      <% @bankdetail.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :city %><br />
+    <%= f.text_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label :bank %><br />
+    <%= f.text_field :bank %>
+  </div>
+    <% if @bankdetail.client_id == nil  %>
+    <%= f.hidden_field :client_id, :value => params[:client_id] %>
+      <% end %>
+       <% if @bankdetail.agenda_id == nil  %>
+    <%= f.hidden_field :agenda_id, :value => params[:agenda_id] %>
+      <% end %>
+        <% if @bankdetail.notice_id == nil  %>
+    <%= f.hidden_field :notice_id, :value => params[:notice_id] %>
+      <% end %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

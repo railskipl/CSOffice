@@ -1,0 +1,27 @@
+<div align="center" id="middle">
+    <div class="newuser_box">
+
+<h1>Listing bankdetails</h1>
+
+<table>
+  <tr>
+    <th>City</th>
+    <th>Bank</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @bankdetails.each do |bankdetail| %>
+  <tr>
+    <td><%= bankdetail.city %></td>
+    <td><%= bankdetail.bank %></td>
+    <td><a href="/clients/<%= bankdetail.client_id %>/minutes/notices/<%= bankdetail.notice_id %>/agenda/<%= bankdetail.agenda_id %>/bankdetails/<%= bankdetail.id %>">Show</a>
+    <td><a href="/clients/<%= bankdetail.client_id %>/minutes/notices/<%= bankdetail.notice_id %>/agenda/<%= bankdetail.agenda_id %>/bankdetails/<%= bankdetail.id %>/edit">Edit</a>
+	<td><a href="/clients/<%= bankdetail.client_id %>/minutes/notices/<%= bankdetail.notice_id %>/agenda/<%= bankdetail.agenda_id %>/bankdetails/<%= bankdetail.id %>/delete" onclick="if(confirm('Are you sure you want to delete this page?'))  return true;  else  return false;" >Destroy</a>
+    
+  </tr>
+<% end %>
+</table>
+</div>
+</div>

@@ -2,5 +2,17 @@
 // This file is automatically included by javascript_include_tag :defaults
 //= require jquery.purr
 //= require best_in_place
-jQuery 
-  $('.best_in_place').best_in_place()
+//= require prototype.js
+
+function remove_fields(link) {
+  $(link).previous("input[type=hidden]").value = "1";
+  $(link).up(".fields").hide();
+}
+
+function add_fields(link, association, content) {
+  var new_id = new Date().getTime();
+  var regexp = new RegExp("new_" + association, "g")
+  $(link).up().insert({
+    before: content.replace(regexp, new_id)
+  });
+}

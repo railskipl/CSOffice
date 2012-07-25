@@ -17,8 +17,14 @@
 
 <h2><%= link_to 'Requirements', client_requirements_path(:client_id => @client.id) , :class=>"signup_button" %>
 	<% unless @client.company_name.nil? %>
-<%= link_to 'One click Company Incorporation', client_comp_incorps_path(:client_id => @client.id), :class=>"signup_button" %></h2>
+<%= link_to 'One click Company Incorporation', client_comp_incorps_path(:client_id => @client.id), :class=>"signup_button" %>
 <%end%>
 
+<% unless @client.incorporated_company_name.nil? %>
+ 
+<%= link_to 'First Letter', client_first_letters_path(:client_id => @client.id), :class=>"signup_button" %>
+<%= link_to 'Minutes', client_minutes_path(:client_id => @client.id), :class=>"signup_button" %></h2>
+
+<%end%>
 </center>
 </div></div>

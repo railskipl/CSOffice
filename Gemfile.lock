@@ -30,6 +30,8 @@ GEM
       activesupport (= 3.0.9)
     activesupport (3.0.9)
     arel (2.0.10)
+    awesome_nested_fields (0.6.0)
+      rails (>= 3.0.0)
     aws-s3 (0.6.2)
       builder
       mime-types
@@ -59,6 +61,7 @@ GEM
     mime-types (1.18)
     multi_json (1.2.0)
     multi_xml (0.4.2)
+    nested_form (0.2.1)
     nokogiri (1.5.2)
     paperclip (2.5.0)
       activerecord (>= 2.3.0)
@@ -110,11 +113,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  awesome_nested_fields
   aws-s3
   aws-sdk
   best_in_place
   cancan
   cocaine
+  nested_form
   paperclip
   prawn
   rails (= 3.0.9)

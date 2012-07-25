@@ -1,0 +1,76 @@
+<%= form_for(@notice,:html=>{:multipart => true}) do |f| %>
+  
+	<div class="tabscontainer">
+     <div class="tabs">
+         <div class="tab selected first" id="tab_menu_1">
+             <div class="link">Notice</div>
+             <div class="arrow"></div>
+         </div>
+         <div class="tab" id="tab_menu_2">
+             <div class="link"><strong>Agendas</strong></div>
+             <div class="arrow"></div>
+         </div> 
+          </div>
+         <div class="curvedContainer">
+  <% if @notice.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@notice.errors.count, "error") %> prohibited this notice from being saved:</h2>
+
+      <ul>
+      <% @notice.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+	<div class="tabcontent" id="tab_content_1" style="display:block">
+  <div class="field">
+    <%= f.label :meeting_id ,"Create Notice for" %><br />
+    <%= f.collection_select :meeting_id, Setting.all(:order => "id"), :meeting_name, :meeting_name %>
+  </div>
+  <div class="field">
+    <%= f.label :company_name %><br />
+    <%= f.text_field :company_name ,:value => CompanyName.find_by_status_and_client_id(true,params[:client_id]).name rescue ""%>
+  </div>
+  <div class="field">
+    <%= f.label :date %><br />
+    <%= f.datetime_select :date %>
+  </div>
+  <div class="field">
+    <%= f.label :place %><br />
+    <%= f.text_field :place %>
+  </div>
+  <div class="field">
+    <%= f.label :issue %><br />
+    <%= f.text_area :issue, :size => "40x4"%>
+  </div>
+  </div>
+  <div class="tabcontent" id="tab_content_2">
+   <div class="field">
+      <%= f.fields_for :notice_agendas do |builder| %>
+        <%= render "notice_agenda_fields", :f => builder %><br/>
+ 	    <% end %>
+ 	    <p><%= link_to_add_fields "Add agenda", f, :notice_agendas %></p><br/>
+ 	</div>
+ 	<div class="field">
+      <%= f.fields_for :notice_directors do |builder| %>
+        <%= render "notice_director_fields", :f => builder %><br/>
+ 	    <% end %>
+ 	    <p><%= link_to_add_fields "Add Director", f, :notice_directors %></p><br/>
+ 	</div>
+ 	
+ 	  <div class="actions">
+    <%= f.submit "Submit" %>
+  </div>
+ 	</div>
+    <% if @notice.client_id == nil  %>
+    <%= f.hidden_field :client_id, :value => params[:client_id] %>
+      <% end %>
+    <% if @notice.user_id == nil  %>
+		<%= f.hidden_field :user_id, :value => current_user.id %>
+  <% end %>
+  <br /><br />
+
+<% end %>
+  </div>

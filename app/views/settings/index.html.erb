@@ -1,0 +1,26 @@
+
+<div align="center" id="middle">
+    <div class="newuser_box">
+<center><br/>
+<table border="" cellpadding="5">
+  <tr>
+    <th>Meeting name</th>
+    <th colspan="3">Action</th>
+   
+  </tr>
+
+<% @settings.each do |setting| %>
+  <tr>
+    <td><%= setting.meeting_name %></td>
+    <td><%= link_to 'Show', setting %></td>
+    <td><%= link_to 'Edit', edit_setting_path(setting) %></td>
+   	  <td><a href="/settings/<%= setting.id %>/delete" onclick="if(confirm('Are you sure you want to delete this page?'))  return true;  else  return false;" >Destroy</a>
+  </tr>
+<% end %>
+</table>
+</center>
+<br />
+
+<%= link_to 'Create New Meeting', new_setting_path %>
+</div>
+</div>

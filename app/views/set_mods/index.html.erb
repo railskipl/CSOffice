@@ -1,0 +1,7 @@
+<div align="center" id="middle">
+    <div class="newuser_box">
+<%= link_to "Objects", {:controller=>"moa_objects", :action=>"index", :id => current_user.id}  %> <br/>
+<%= link_to "Incidental object", {:controller=>"incidental_objects", :action=>"index", :id => current_user.id}  %><br/>
+<%= link_to "Meetings", {:controller=>"meetings", :action=>"index", :id => current_user.id } %>
+</div>
+</div>  

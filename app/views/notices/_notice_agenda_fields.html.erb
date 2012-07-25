@@ -1,0 +1,8 @@
+  <div class="fields">
+  <p>   <%= f.label :title, "Agenda" %><br />
+     
+   <%= f.collection_select :title, Agenda.all(:order => "id"), :id, :title %>
+    <%= link_to_remove_fields "remove", f %> 
+    </p>
+  </div>
+    

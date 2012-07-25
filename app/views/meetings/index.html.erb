@@ -1,0 +1,7 @@
+<div align="center" id="middle">
+    <div class="newuser_box">
+<%= link_to "Meeting Name", {:controller=>"settings", :action=>"index", :id => current_user.id}  %> <br/>
+<%= link_to "Agendas", {:controller=>"agendas", :action=>"index", :id => current_user.id}  %><br/>
+<%= link_to "Banks", {:controller=>"banks", :action=>"index" ,:id => current_user.id}  %>
+</div>
+</div>  

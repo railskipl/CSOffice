@@ -1,0 +1,44 @@
+<div align="center" id="middle">
+    <div class="newuser_box">
+
+<p>
+  <b>Create notice for:</b>
+  <%= @notice.meeting_id%>
+</p>
+
+<p>
+  <b>Company name:</b>
+  <%= @notice.company_name %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @notice.date %>
+</p>
+
+<p>
+  <b>Place:</b>
+  <%= @notice.place %>
+</p>
+
+<p>
+  <b>Issue:</b>
+  <%= @notice.issue %>
+</p>
+<p>
+  <b>Agendas:</b><br>
+ 
+<% for title in @notice.notice_agendas %>
+<p><a href="<%= @notice.id%>/agenda/<%=  title.title %>"><%= Agenda.find_by_id(title.title).title %></a></p>
+<% end %>
+</p>
+
+
+<br/>
+ 
+   	<p><a href="/clients/<%= @notice.client_id %>/minutes/notices/<%= @notice.id %>/edit" >Edit</a> |
+  	<a href="/clients/<%= @notice.client_id %>/minutes/notices/">Show</a></p>
+</div>
+</div>
+
+

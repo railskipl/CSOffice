@@ -1,0 +1,25 @@
+<div align="center" id="middle">
+    <div class="newuser_box">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Company name:</b>
+  <%= @first_letter.company_name %>
+</p>
+<p>
+  <b>Header:</b>
+  <%= @first_letter.cs_name %>
+</p>
+<p>
+  <b>Header:</b>
+  <%= @first_letter.header %>
+</p>
+
+<p>
+  <b>Stationary name:</b>
+  <%= @first_letter.stationary_name %>
+</p>
+
+
+ <a href="/clients/<%= params[:client_id] %>/first_letters"  >Back</a>
+</div>

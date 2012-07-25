@@ -1,0 +1,36 @@
+<div align="center" id="middle">
+    <div class="newuser_box">
+<%= form_for(@first_letter) do |f| %>
+<%= render 'error'%>
+	<h2>First Letter</h2>
+  <div class="field">
+    <%= f.label :company_name %><br />
+    <%= f.text_field :company_name,:value => CompanyName.find_by_status_and_client_id(true,params[:client_id]).name rescue "" %>
+  </div>
+  <div>
+   <div class="field">
+    <%= f.label :cs_name %><br />
+    <%= f.text_field :cs_name %>
+  </div>
+    <pre>
+Example For Header:
+(205, 2nd Floor, “HIMALAYA ENCLAVE”
+1, SHIVAJINAGAR, GANDHINAGAR SQUARE,
+OPP. LAD COLLEGE, NORTH AMBAZARI ROAD,
+NAGPUR 440010.)
+ 	</pre>
+  <div class="field">
+    <%= f.label :header %><br />
+    <%= f.text_area :header,:size => '39x4' %>
+  </div>
+  <div class="field">
+    <%= f.label :stationary_name %><br />
+    <%= f.text_area :stationary_name,:size => '39x4' %>
+  </div>
+  <% if @first_letter.client_id == nil %>
+    <%= f.hidden_field :client_id, :value => params[:client_id] %>
+  <% end %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

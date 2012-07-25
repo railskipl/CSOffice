@@ -13,7 +13,11 @@ def create
     @company_incidental_object = CompanyIncidentalObject.new(params[:company_incidental_object])
     if @company_incidental_object.save
       flash[:notice] = "Successfully created discription."
+<<<<<<< HEAD
        redirect_to("/clients/#{@company_incidental_object.client_id}/requirements/incorps/company_incidental_objects")
+=======
+       redirect_to("/clients/#{@company_incidental_object.client_id}/requirements/incorps/obj")
+>>>>>>> 852246ec39c8beb200a994203c47f254d0759306
     else
       render :action => 'new'
     end
@@ -32,7 +36,11 @@ def create
     @company_incidental_object = CompanyIncidentalObject.find(params[:id])
     if @company_incidental_object.update_attributes(params[:company_incidental_object])
       flash[:notice] = "Successfully updated discription."
+<<<<<<< HEAD
       redirect_to ("/clients/#{@company_incidental_object.client_id}/requirements/incorps/company_incidental_objects")
+=======
+      redirect_to ("/clients/#{@company_incidental_object.client_id}/requirements/incorps/obj")
+>>>>>>> 852246ec39c8beb200a994203c47f254d0759306
     else
       render :action => 'edit'
     end
@@ -41,7 +49,11 @@ def create
     @company_incidental_object = CompanyIncidentalObject.find(params[:id])
     @company_incidental_object.destroy
     flash[:notice] = "Successfully destroyed discription."
+<<<<<<< HEAD
       redirect_to ("/clients/#{@company_incidental_object.client_id}/requirements/incorps/company_incidental_objects")
+=======
+      redirect_to ("/clients/#{@company_incidental_object.client_id}/requirements/incorps/obj")
+>>>>>>> 852246ec39c8beb200a994203c47f254d0759306
   end
   
   

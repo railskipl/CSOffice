@@ -15,7 +15,8 @@ class ClientsController < ApplicationController
   # GET /clients/1.xml
   def show
     @client = Client.find(params[:id])
-    
+
+    @first_letter = FirstLetter.new
    if (@client.user_id == current_user.id) || (Clientuser.find_by_client_id(@client.id).recipient == current_user.id)
 
     respond_to do |format|

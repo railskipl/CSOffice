@@ -1,0 +1,22 @@
+
+<div align="center" id="middle">
+	<h2>List of added Company Main Objects</h2> 
+  <table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
+				<tr>
+					<th align="center" valign="middle" class="table-header-repeat line-left minwidth-1"><a href="">Description</a>	</th>
+					<th align="center" valign="middle" class="table-header-options line-left"><a href="">Action</a></th>
+				</tr>
+				
+<% @company_main_objects.each do |company_main_object| %>
+	<tr>
+	<td><%=  company_main_object.description %>
+<td>
+ 
+    <a href="/clients/<%= company_main_object.client_id %>/requirements/incorps/company_main_objects/<%= company_main_object.id %>" class="icon-1 info-tooltip" ></a>
+   <a href="/clients/<%= company_main_object.client_id %>/requirements/incorps/company_main_objects/<%= company_main_object.id %>/edit" class="icon-2 info-tooltip" ></a>
+   <a href="/clients/<%= company_main_object.client_id %>/requirements/incorps/company_main_objects/<%= company_main_object.id %>/delete" onclick="if(confirm('Are you sure you want to delete this page?'))  return true;  else  return false;" class = "icon-3 info-tooltip" ></a>
+
+<% end %>
+</tr>
+</table>
+</div>
